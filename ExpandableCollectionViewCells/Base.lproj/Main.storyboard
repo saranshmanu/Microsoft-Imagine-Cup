@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0MF-7U-RwM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ohY-2I-LhF">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -111,7 +111,7 @@
         <!--Cards View Controller-->
         <scene sceneID="1bh-C7-mBq">
             <objects>
-                <viewController id="0MF-7U-RwM" customClass="CardsViewController" customModule="ExpandableCollectionViewCells" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0MF-7U-RwM" customClass="CardsViewController" customModule="ExpandableCollectionViewCells" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9yf-kU-INw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,6 +135,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOOD MORNING" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-c4-s8p">
                                                     <rect key="frame" x="12" y="6" width="311" height="85"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="85" id="MY9-Wy-QHq"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="29"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -398,6 +401,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w30-SO-kSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="904.79999999999995" y="33.990147783251231"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="a2h-qs-bfQ">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalPresentationStyle="pageSheet" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="ohY-2I-LhF" customClass="PageViewController" customModule="ExpandableCollectionViewCells" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sel-TD-lrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821" y="36"/>
+        </scene>
+        <!--Tracking View Controller-->
+        <scene sceneID="h3a-UD-0Td">
+            <objects>
+                <viewController storyboardIdentifier="arViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lCt-a2-oKY" customClass="ARTrackingViewController" customModule="ExpandableCollectionViewCells" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="7qr-CF-J37">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uk3-0O-Wxg">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </arscnView>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Hu-A2-GQG">
+                                <rect key="frame" x="0.0" y="660" width="375" height="128"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oQu-uR-672">
+                                        <rect key="frame" x="67.666666666666657" y="8" width="240" height="4"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="05h-dM-QOF"/>
+                                            <constraint firstAttribute="height" constant="5" id="KPr-dh-1Ti"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="9v5-XP-pjx"/>
+                                    <constraint firstItem="oQu-uR-672" firstAttribute="centerX" secondItem="9Hu-A2-GQG" secondAttribute="centerX" id="I5A-PO-mXY"/>
+                                    <constraint firstItem="oQu-uR-672" firstAttribute="top" secondItem="9Hu-A2-GQG" secondAttribute="top" constant="8" id="djy-3s-LRH"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VXI-BZ-zPv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.38318707191780821" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="8zf-hR-g7Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Hu-A2-GQG" firstAttribute="bottom" secondItem="e1J-62-mXm" secondAttribute="bottom" constant="10" id="A2M-NZ-Pir"/>
+                            <constraint firstItem="VXI-BZ-zPv" firstAttribute="leading" secondItem="e1J-62-mXm" secondAttribute="leading" id="CNj-7A-AWy"/>
+                            <constraint firstItem="VXI-BZ-zPv" firstAttribute="trailing" secondItem="e1J-62-mXm" secondAttribute="trailing" id="PVp-oi-loO"/>
+                            <constraint firstItem="Uk3-0O-Wxg" firstAttribute="leading" secondItem="e1J-62-mXm" secondAttribute="leading" id="Qbm-7w-PyT"/>
+                            <constraint firstItem="e1J-62-mXm" firstAttribute="trailing" secondItem="9Hu-A2-GQG" secondAttribute="trailing" id="RlX-ae-5go"/>
+                            <constraint firstItem="VXI-BZ-zPv" firstAttribute="top" secondItem="7qr-CF-J37" secondAttribute="top" id="eJc-hg-yi3"/>
+                            <constraint firstItem="9Hu-A2-GQG" firstAttribute="leading" secondItem="e1J-62-mXm" secondAttribute="leading" id="gcz-O0-W93"/>
+                            <constraint firstItem="Uk3-0O-Wxg" firstAttribute="top" secondItem="7qr-CF-J37" secondAttribute="top" id="p7C-dO-NCE"/>
+                            <constraint firstAttribute="bottom" secondItem="Uk3-0O-Wxg" secondAttribute="bottom" id="uLx-2j-Otc"/>
+                            <constraint firstItem="Uk3-0O-Wxg" firstAttribute="trailing" secondItem="e1J-62-mXm" secondAttribute="trailing" id="uiN-Vf-6Nd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e1J-62-mXm"/>
+                    </view>
+                    <connections>
+                        <outlet property="debugTextView" destination="VXI-BZ-zPv" id="Hwo-1W-mJI"/>
+                        <outlet property="sceneView" destination="Uk3-0O-Wxg" id="gt1-t0-uts"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w01-1b-Qgm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2632.8000000000002" y="34.729064039408868"/>
         </scene>
     </scenes>
     <resources>

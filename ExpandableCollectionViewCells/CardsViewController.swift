@@ -10,8 +10,8 @@ import UIKit
 
 class CardsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private var hiddenCells: [ProductCollectionViewCell] = []
-    private var expandedCell: ProductCollectionViewCell?
+    private var hiddenCells:[ProductCollectionViewCell] = []
+    private var expandedCell:ProductCollectionViewCell?
     private var filterCell:[CardsCollectionViewCell] = []
     
     private var isStatusBarHidden = false
