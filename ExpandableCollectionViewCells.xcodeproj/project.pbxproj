@@ -7,10 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950A0AA52205F313002E50EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA42205F313002E50EE /* PageViewController.swift */; };
+		950A0AA72205FFA1002E50EE /* ARTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */; };
+		950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA8220602D5002E50EE /* MobileNet.mlmodel */; };
+		950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */ = {isa = PBXBuildFile; fileRef = 950A0AAC22071999002E50EE /* ProductInformation.sks */; };
 		956CFB352205651100883690 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB342205651100883690 /* CardsCollectionViewCell.swift */; };
 		956CFB372205688300883690 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB362205688300883690 /* CardsViewController.swift */; };
 		956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */; };
 		956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */; };
+		95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9702208ACAA00F16FDE /* Constants.swift */; };
+		95ACA9732208C69000F16FDE /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */; };
+		95D09791220A5DF500247436 /* Product.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95D09790220A5DF500247436 /* Product.sks */; };
+		95D0979B220AAC9A00247436 /* foodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95D0979A220AAC9900247436 /* foodModel.mlmodel */; };
 		DB181D3C2080B46900656A16 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB181D3B2080B46900656A16 /* Expandable.swift */; };
 		DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E62068C37600544FCD /* AppDelegate.swift */; };
 		DB48C4E92068C37600544FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E82068C37600544FCD /* ViewController.swift */; };
@@ -21,10 +29,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		950A0AA42205F313002E50EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingViewController.swift; sourceTree = "<group>"; };
+		950A0AA8220602D5002E50EE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		950A0AAC22071999002E50EE /* ProductInformation.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ProductInformation.sks; sourceTree = "<group>"; };
 		956CFB342205651100883690 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		956CFB362205688300883690 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		95ACA9702208ACAA00F16FDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		95D09790220A5DF500247436 /* Product.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Product.sks; sourceTree = "<group>"; };
+		95D0979A220AAC9900247436 /* foodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = foodModel.mlmodel; sourceTree = "<group>"; };
 		DB181D3B2080B46900656A16 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		DB48C4E32068C37600544FCD /* ExpandableCollectionViewCells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableCollectionViewCells.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB48C4E62068C37600544FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,9 +107,17 @@
 				DB48C4EF2068C37600544FCD /* LaunchScreen.storyboard */,
 				DB48C4F22068C37600544FCD /* Info.plist */,
 				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
+				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
 				956CFB362205688300883690 /* CardsViewController.swift */,
 				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
 				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
+				950A0AA42205F313002E50EE /* PageViewController.swift */,
+				95D0979A220AAC9900247436 /* foodModel.mlmodel */,
+				950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */,
+				950A0AAC22071999002E50EE /* ProductInformation.sks */,
+				95ACA9702208ACAA00F16FDE /* Constants.swift */,
+				95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */,
+				95D09790220A5DF500247436 /* Product.sks */,
 			);
 			path = ExpandableCollectionViewCells;
 			sourceTree = "<group>";
@@ -157,6 +181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */,
+				95D09791220A5DF500247436 /* Product.sks in Resources */,
 				DB48C4F12068C37600544FCD /* LaunchScreen.storyboard in Resources */,
 				DB48C4EE2068C37600544FCD /* Assets.xcassets in Resources */,
 				DB48C4EC2068C37600544FCD /* Main.storyboard in Resources */,
@@ -170,14 +196,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95ACA9732208C69000F16FDE /* HeaderCollectionViewCell.swift in Sources */,
+				950A0AA72205FFA1002E50EE /* ARTrackingViewController.swift in Sources */,
 				956CFB352205651100883690 /* CardsCollectionViewCell.swift in Sources */,
 				DB48C4E92068C37600544FCD /* ViewController.swift in Sources */,
+				95D0979B220AAC9A00247436 /* foodModel.mlmodel in Sources */,
 				956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */,
 				956CFB372205688300883690 /* CardsViewController.swift in Sources */,
 				DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */,
 				DB48C4F92068C71300544FCD /* ExpandableCell.swift in Sources */,
+				950A0AA52205F313002E50EE /* PageViewController.swift in Sources */,
+				950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */,
 				DB181D3C2080B46900656A16 /* Expandable.swift in Sources */,
 				956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */,
+				95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +350,7 @@
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
 				INFOPLIST_FILE = ExpandableCollectionViewCells/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dantish.ExpandableCollectionViewCells;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.spot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -333,7 +365,7 @@
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
 				INFOPLIST_FILE = ExpandableCollectionViewCells/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dantish.ExpandableCollectionViewCells;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.spot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

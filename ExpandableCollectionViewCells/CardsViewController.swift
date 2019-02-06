@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CardsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private var hiddenCells:[ProductCollectionViewCell] = []
     private var expandedCell:ProductCollectionViewCell?
@@ -20,12 +20,20 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.row == 0 {
+            return CGSize(width: 335, height: 110)
+        } else {
+            return CGSize(width: 335, height: 474)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
-            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! ProductCollectionViewCell
+            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! HeaderCollectionViewCell
             return card
         } else if indexPath.row == 1 {
             let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
@@ -37,6 +45,25 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
             card.layer.shadowOpacity = 0.4
             card.layer.shadowOffset = CGSize(width: 0, height: 0)
             card.layer.shadowRadius = 20
+            card.filters = Constants.filtersCategories
+            card.cardHeading.text = "Filters"
+            let subheading = "Based on Food Category"
+            card.cardSubheading.text = subheading.uppercased()
+            return card
+        } else if indexPath.row == 2 {
+            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
+            card.contentView.backgroundColor = .white
+            card.contentView.layer.cornerRadius = 10
+            card.contentView.layer.masksToBounds = true
+            card.layer.masksToBounds = false
+            card.layer.shadowColor = UIColor.black.cgColor
+            card.layer.shadowOpacity = 0.4
+            card.layer.shadowOffset = CGSize(width: 0, height: 0)
+            card.layer.shadowRadius = 20
+            card.filters = Constants.filtersContent
+            card.cardHeading.text = "Filters"
+            let subheading = "Based on Content Type"
+            card.cardSubheading.text = subheading.uppercased()
             return card
         } else {
             let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath)
@@ -45,7 +72,7 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row != 0 && indexPath.row != 1{
+        if indexPath.row != 0 && indexPath.row != 1 && indexPath.row != 2{
             if collectionView.contentOffset.y < 0 ||
                 collectionView.contentOffset.y > collectionView.contentSize.height - collectionView.frame.height {
                 return

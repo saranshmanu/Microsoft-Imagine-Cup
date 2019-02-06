@@ -11,9 +11,8 @@ import SceneKit
 import ARKit
 import Vision
 
-@available(iOS 12.0, *)
 class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
-
+    
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var debugTextView: UITextView!
     
@@ -22,25 +21,26 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     var detectedObjectCode = [String]()
     var totalLength = 0
     
-    func changeNodeText(text:String, number:Int){
-        Nodes[number].removeFromParentNode()
-        Nodes.remove(at: number)
-        var closestResult = closestResults[number]
+    func changeNode(text:String, indexNumber:Int, listOfFilterImages:[String], totalFilters: Int){
+        print("Changing nodes")
+        Nodes[indexNumber].removeFromParentNode()
+        Nodes.remove(at: indexNumber)
+        var closestResult = closestResults[indexNumber]
         let transform : matrix_float4x4 = closestResult.worldTransform
         let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-        let node : SCNNode = createNewChildNode(text)
+        let node : SCNNode = createNewChildNode(detectedObjectCode[indexNumber], totalFilters: totalFilters, listOfFilterImages: listOfFilterImages)
         sceneView.scene.rootNode.addChildNode(node)
         node.position = worldCoord
-        Nodes.insert(node, at: number)
+        Nodes.insert(node, at: indexNumber)
     }
     
-    func selectedPinNode(number:Int, filter:String) {
-        changeNodeText(text: filter, number: number)
-    }
-    
-    func deselectPinNode(number:Int, filter:String) {
-        changeNodeText(text: filter, number: number)
-    }
+//    func selectedPinNode(number:Int, filter:String) {
+//        changeNodeText(text: filter, number: number)
+//    }
+//
+//    func deselectPinNode(number:Int, filter:String) {
+//        changeNodeText(text: filter, number: number)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +59,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         self.sceneView.addGestureRecognizer(tapGesture)
         // Setup coreml model
         // Set up Vision Model
-        guard let selectedModel = try? VNCoreMLModel(for: MobileNet().model) else { // (Optional) This can be replaced with other models on https://developer.apple.com/machine-learning/
+        guard let selectedModel = try? VNCoreMLModel(for: foodModel().model) else { // (Optional) This can be replaced with other models on https://developer.apple.com/machine-learning/
             fatalError("Could not load model. Ensure model has been drag and dropped (copied) to XCode Project from https://developer.apple.com/machine-learning/ . Also ensure the model is part of a target (see: https://stackoverflow.com/questions/45884085/model-is-not-part-of-any-target-add-the-model-to-a-target-to-enable-generation ")
         }
         // Set up Vision-CoreML Request
@@ -69,10 +69,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         // Begin Loop to Update CoreML
         loopCoreMLUpdate()
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         // Enable plane detection
@@ -81,8 +78,69 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let totalDetected = detectedFood.count
+        DispatchQueue.main.async {
+            if totalDetected != 0{
+                for i in 0...(totalDetected-1) {
+                    var listOfFilterImages = [String]()
+                    if detectedFood[i].DietFood == true && filtersSelectedBool.DietFoodFilter == true{
+                        listOfFilterImages.append(filterImagesName.DietFoodFilter)
+                    }
+                    if detectedFood[i].BabyFood == true && filtersSelectedBool.BabyFoodFilter == true {
+                        listOfFilterImages.append(filterImagesName.BabyFoodFilter)
+                    }
+                    if detectedFood[i].GymFood == true && filtersSelectedBool.GymFoodFilter == true {
+                        listOfFilterImages.append(filterImagesName.GymFoodFilter)
+                    }
+                    if detectedFood[i].NutitionalFood == true && filtersSelectedBool.NutitionalFoodFilter == true {
+                        listOfFilterImages.append(filterImagesName.NutitionalFoodFilter)
+                    }
+                    if detectedFood[i].SpicyFood == true && filtersSelectedBool.SpicyFoodFilter == true {
+                        listOfFilterImages.append(filterImagesName.SpicyFoodFilter)
+                    }
+                    if detectedFood[i].SportsDrink == true && filtersSelectedBool.SportsDrinkFilter == true {
+                        listOfFilterImages.append(filterImagesName.SportsDrinkFilter)
+                    }
+                    if detectedFood[i].SoftDrinks == true && filtersSelectedBool.SoftDrinksFilter == true {
+                        listOfFilterImages.append(filterImagesName.SoftDrinksFilter)
+                    }
+                    if detectedFood[i].Calorie == true && filtersSelectedBool.CalorieFilter == true {
+                        listOfFilterImages.append(filterImagesName.CalorieFilter)
+                    }
+                    if detectedFood[i].Nuts == true && filtersSelectedBool.NutsFilter == true {
+                        listOfFilterImages.append(filterImagesName.NutsFilter)
+                    }
+                    if detectedFood[i].Eggs == true && filtersSelectedBool.EggsFilter == true {
+                        listOfFilterImages.append(filterImagesName.EggsFilter)
+                    }
+                    if detectedFood[i].Sugar == true && filtersSelectedBool.SugarFilter == true {
+                        listOfFilterImages.append(filterImagesName.SugarFilter)
+                    }
+                    if detectedFood[i].Caffiene == true && filtersSelectedBool.CaffieneFilter == true {
+                        listOfFilterImages.append(filterImagesName.CaffieneFilter)
+                    }
+                    if detectedFood[i].Lactose == true && filtersSelectedBool.LactoseFilter == true {
+                        listOfFilterImages.append(filterImagesName.LactoseFilter)
+                    }
+                    if detectedFood[i].Soya == true && filtersSelectedBool.SoyaFilter == true {
+                        listOfFilterImages.append(filterImagesName.SoyaFilter)
+                    }
+                    if detectedFood[i].Vegan == true && filtersSelectedBool.VeganFilter == true {
+                        listOfFilterImages.append(filterImagesName.VeganFilter)
+                    }
+                    print(listOfFilterImages.count)
+                    self.changeNode(text: "", indexNumber: i, listOfFilterImages: listOfFilterImages, totalFilters: listOfFilterImages.count)
+                }
+            }
+        }
+        
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
         // Pause the view's session
 //        sceneView.session.pause()
     }
@@ -100,6 +158,27 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         // HIT TEST : REAL WORLD
+        // here the latest prediction will be used as the id to be sent to the cloud and once after receiveing the information about the product the app continues till then I will show a loader that the object is bering detected
+        var temp = foodItem()
+        let prediction = latestPrediction
+        for i in 0...database.count - 1 {
+            let flag = database[i] as NSDictionary
+            let code = flag["Code"] as! String + " "
+            if code == prediction {
+                print(code)
+                temp.foodID = flag["Code"] as! String
+                temp.foodName = flag["Name"] as! String
+                temp.Calorie = flag["Calorie"] as! Bool
+                temp.Nuts = flag["Nuts"] as! Bool
+                temp.Eggs = flag["Eggs"] as! Bool
+                temp.Sugar = flag["Sugar"] as! Bool
+                temp.Caffiene = flag["Caffiene"] as! Bool
+                temp.Lactose = flag["Lactose"] as! Bool
+                temp.Soya = flag["Soya"] as! Bool
+                temp.Vegan = flag["Vegan"] as! Bool
+            }
+        }
+        detectedFood.append(temp)
         
         // Get Screen Centre
         let screenCentre:CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
@@ -109,18 +188,38 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             let transform:matrix_float4x4 = closestResult.worldTransform
             let worldCoord:SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
             // Create 3D Text
-            let node:SCNNode = createNewChildNode(latestPrediction)
+            let node:SCNNode = createNewChildNode(temp.foodName, totalFilters: 0, listOfFilterImages: [])
             sceneView.scene.rootNode.addChildNode(node)
             node.position = worldCoord
-//            Nodes.append(node)
-//            detectedObjectCode.append(latestPrediction)
-//            closestResults.append(closestResult)
-//            totalLength = Nodes.count
+            Nodes.append(node)
+            closestResults.append(closestResult)
+            detectedObjectCode.append(temp.foodName)
         }
     }
     
+    func addAnimation(node: SCNNode) {
+//        let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
+        let hoverUp = SCNAction.moveBy(x: 0, y: 0.02, z: 0, duration: 2.5)
+        let hoverDown = SCNAction.moveBy(x: 0, y: -0.02, z: 0, duration: 2.5)
+        let hoverSequence = SCNAction.sequence([hoverUp, hoverDown])
+        let rotateAndHover = SCNAction.group([hoverSequence])
+        let repeatForever = SCNAction.repeatForever(rotateAndHover)
+        node.runAction(repeatForever)
+    }
     
-    func createNewChildNode(_ text : String) -> SCNNode {
+    override func viewDidAppear(_ animated: Bool) {
+        print("View appeared again")
+    }
+    
+    
+    func createNewChildNode(_ text:String, totalFilters: Int, listOfFilterImages: [String]) -> SCNNode {
+        
+        let billboardConstraint = SCNBillboardConstraint()
+        billboardConstraint.freeAxes = SCNBillboardAxis.Y
+        let childParent = SCNNode()
+        
+//        -----------------------------------------------------------------------------------------------
+        
         let prediction = text
         let textDepth : Float = 0.01
         let text = SCNText(string: text, extrusionDepth: CGFloat(textDepth))
@@ -136,53 +235,65 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         textNode.pivot = SCNMatrix4MakeTranslation( (maxBound.x - minBound.x)/2, minBound.y, textDepth/2)
         textNode.scale = SCNVector3Make(0.2, 0.2, -0.2)
         
+//        -----------------------------------------------------------------------------------------------
+
         
-        let sphere = SCNSphere(radius: 0.002)
-        sphere.firstMaterial?.diffuse.contents = UIColor.cyan
-        let sphereNode = SCNNode(geometry: sphere)
-//        sphereNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
-        sphereNode.position = SCNVector3Make(0, 0, 0)
-        
-        let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.1))
-        plane.cornerRadius = plane.width
+        let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.05))
+        plane.cornerRadius = 0
         let spriteKitScene = SKScene(fileNamed: "ProductInformation")
-        spriteKitScene?.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
-        let image = SKSpriteNode(imageNamed: "Avatar")
-        let label = SKLabelNode(fontNamed: "Arial")
+//        spriteKitScene?.backgroundColor = UIColor.blue
+        let label = SKLabelNode(fontNamed: "Arial-Bold")
         label.text = prediction
         label.fontSize = 60
         spriteKitScene?.addChild(label)
-//        spriteKitScene?.addChild(image)
         plane.firstMaterial?.diffuse.contents = spriteKitScene
         plane.firstMaterial?.isDoubleSided = false
         plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = SCNVector3Make(0, 0.1, 0)
+        addAnimation(node: planeNode)
         
-        let plane2 = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.1))
-        plane2.cornerRadius = plane2.width
-        let spriteKitScene2 = SKScene(fileNamed: "ProductInformation")
-        spriteKitScene2?.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
-        let image2 = SKSpriteNode(imageNamed: "Avatar")
-        image2.size.height = 10
-//        let label2 = SKLabelNode(fontNamed: "Arial")
-//        label2.text = prediction
-//        label2.fontSize = 60
-//        spriteKitScene2?.addChild(label2)
-        spriteKitScene2?.addChild(image2)
-        plane2.firstMaterial?.diffuse.contents = spriteKitScene2
-        plane2.firstMaterial?.isDoubleSided = false
-        plane2.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
-        let planeNode2 = SCNNode(geometry: plane2)
-        planeNode2.position = SCNVector3Make(0, 0.23, 0)
+//        -----------------------------------------------------------------------------------------------
+
+        let flag = totalFilters
+        
+        if flag != 0 {
+            for i in 1...flag {
+                let filterCard = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.1))
+                filterCard.cornerRadius = 0
+                let filterCardScene = SKScene(fileNamed: "Product")
+                filterCardScene?.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
+                let filterCardImage = SKSpriteNode(imageNamed: listOfFilterImages[i-1]) // listOfFilterImages[i]
+//                filterCardImage.size.height = (filterCardScene?.frame.height)!
+                filterCardScene?.addChild(filterCardImage)
+                filterCard.firstMaterial?.diffuse.contents = filterCardScene
+                filterCard.firstMaterial?.isDoubleSided = false
+                filterCard.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
+                let filterCardNode = SCNNode(geometry: filterCard)
+                let yAxis = (Double(i)) * 0.11 + 0.09
+                filterCardNode.position = SCNVector3Make(0, Float(yAxis), 0)
+                childParent.addChildNode(filterCardNode)
+                
+            }
+        }
         
         
-        let billboardConstraint = SCNBillboardConstraint()
-        billboardConstraint.freeAxes = SCNBillboardAxis.Y
-        let childParent = SCNNode()
-        childParent.addChildNode(sphereNode)
-        childParent.addChildNode(planeNode2)
-//        childParent.addChildNode(textNode)
+//        -----------------------------------------------------------------------------------------------
+
+        
+        for _ in 0...100 {
+            let randomx = Float.random(in: -5...5) / 200
+            let randomy = Float.random(in: -5...5) / 200
+            let randomz = Float.random(in: -5...5) / 200
+
+            let sphere = SCNSphere(radius: 0.001)
+            sphere.firstMaterial?.diffuse.contents = UIColor.yellow
+            let sphereNode = SCNNode(geometry: sphere)
+            sphereNode.position = SCNVector3Make(randomx, randomy, randomz)
+            childParent.addChildNode(sphereNode)
+        }
+        
+
         childParent.addChildNode(planeNode)
         childParent.constraints = [billboardConstraint]
         return childParent

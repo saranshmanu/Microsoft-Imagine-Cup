@@ -57,7 +57,5 @@ extension PageViewController: UIPageViewControllerDataSource{
             return nil
         }
     }
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-    }
 }
 extension PageViewController: UIPageViewControllerDelegate { }

@@ -13,19 +13,22 @@ struct filterDescription {
     var subHeading = ""
 }
 
+protocol FilterProtocol: class {
+    //protocol definition goes here
+    func updatesFilterOption()
+}
+
+
 class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, Expandable {
     
+    weak var delegate: FilterProtocol?
+    
     var filters = [
-        ["Low", "Calorie", "greenGradient", 0],
-        ["Without", "Nuts", "greyGradient", 0],
-        ["Without", "Eggs", "purpleGradient", 0],
-        ["Low", "Sugar", "blueGradient", 0],
-        ["Without", "Caffiene", "blackGradient", 0],
-        ["Without", "Lactose", "redGradient", 0],
-        ["Without", "Soya", "greyGradient", 0]
+        ["", "", "", 0]
     ]
+    
     var totalFilters = 100
-    let size = [140]
+    let size = [150]
     
     func autoScroll () {
         let co = filterCollectionView.contentOffset.x
@@ -43,13 +46,82 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         } else {
             filters[indexPath.row%filters.count][3] = 1
         }
-        print(filters[indexPath.row%filters.count][3])
+//        delegate?.updatesFilterOption()
+        for i in 0...filters.count - 1 {
+            if filters[i][3] as! Int == 1 {
+                switch i {
+                    case 0: filtersSelectedBool.CalorieFilter = true
+                    case 1: filtersSelectedBool.NutsFilter = true
+                    case 2: filtersSelectedBool.EggsFilter = true
+                    case 3: filtersSelectedBool.SugarFilter = true
+                    case 4: filtersSelectedBool.CaffieneFilter = true
+                    case 5: filtersSelectedBool.LactoseFilter = true
+                    case 6: filtersSelectedBool.SoyaFilter = true
+                    case 7: filtersSelectedBool.VeganFilter = true
+                    default:
+                        continue
+                }
+                
+            } else {
+                if i == 0 {
+                    filtersSelectedBool.CalorieFilter = false
+                }
+                switch i {
+                    case 0: filtersSelectedBool.CalorieFilter = false
+                    case 1: filtersSelectedBool.NutsFilter = false
+                    case 2: filtersSelectedBool.EggsFilter = false
+                    case 3: filtersSelectedBool.SugarFilter = false
+                    case 4: filtersSelectedBool.CaffieneFilter = false
+                    case 5: filtersSelectedBool.LactoseFilter = false
+                    case 6: filtersSelectedBool.SoyaFilter = false
+                    case 7: filtersSelectedBool.VeganFilter = false
+                    default:
+                        continue
+                }
+            }
+        }
+        
+//        for i in 0...Constants.filtersCategories.count - 1 {
+//            if Constants.filtersCategories[i][3] as! Int == 1 {
+//                switch i {
+//                    case 0: filtersSelectedBool.DietFoodFilter = true
+//                    case 1: filtersSelectedBool.BabyFoodFilter = true
+//                    case 2: filtersSelectedBool.GymFoodFilter = true
+//                    case 3: filtersSelectedBool.NutitionalFoodFilter = true
+//                    case 4: filtersSelectedBool.SpicyFoodFilter = true
+//                    case 5: filtersSelectedBool.SportsDrinkFilter = true
+//                    case 6: filtersSelectedBool.SoftDrinksFilter = true
+//                    default:
+//                        continue
+//                }
+//            } else {
+//                switch i {
+//                    case 0: filtersSelectedBool.DietFoodFilter = false
+//                    case 1: filtersSelectedBool.BabyFoodFilter = false
+//                    case 2: filtersSelectedBool.GymFoodFilter = false
+//                    case 3: filtersSelectedBool.NutitionalFoodFilter = false
+//                    case 4: filtersSelectedBool.SpicyFoodFilter = false
+//                    case 5: filtersSelectedBool.SportsDrinkFilter = false
+//                    case 6: filtersSelectedBool.SoftDrinksFilter = false
+//                    default:
+//                        continue
+//                }
+//            }
+//        }
         filterCollectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return totalFilters
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        cell.alpha = 0.6
+//        UIView.animate(withDuration: 0.8) {
+//            cell.contentScaleFactor = 1
+//            cell.alpha = 1
+//        }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let card = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "filterCard", for: indexPath) as! FilterCollectionViewCell
@@ -74,6 +146,7 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         return CGSize(width: size[indexPath.row%size.count], height: 70)
     }
     
+    @IBOutlet weak var cardBackground: UIView!
     @IBOutlet weak var cardHeading: UILabel!
     @IBOutlet weak var cardSubheading: UILabel!
     @IBOutlet weak var filterCollectionView: UICollectionView!
@@ -94,9 +167,6 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         gradientLayer.frame = view.bounds
         view.layer.addSublayer(gradientLayer)
     }
-    
-    
-//    ________________________
     
     private var initialFrame: CGRect?
     private var initialCornerRadius: CGFloat?
