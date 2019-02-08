@@ -14,6 +14,10 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
         cardsCollectionView.reloadData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.view.layoutIfNeeded()
+    }
+    
     private var hiddenCells:[ProductCollectionViewCell] = []
     private var expandedCell:ProductCollectionViewCell?
     private var filterCell:[CardsCollectionViewCell] = []
@@ -86,6 +90,9 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if self.view.frame.width >= 400 {
+            return
+        }
         if indexPath.row != 0 && indexPath.row != 1 && indexPath.row != 2{
             if collectionView.contentOffset.y < 0 ||
                 collectionView.contentOffset.y > collectionView.contentSize.height - collectionView.frame.height {

@@ -18,6 +18,8 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     let configuration = ARWorldTrackingConfiguration()
     let augmentedRealitySession = ARSession()
     
+    @IBOutlet weak var calibrationText: UILabel!
+    @IBOutlet weak var calibrationImage: UIImageView!
     @IBOutlet weak var scannerView: UIView!
     @IBOutlet weak var calibrationLoaderView: UIView!
     @IBOutlet var sceneView: ARSCNView!
@@ -59,10 +61,28 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         Nodes.insert(node, at: indexNumber)
     }
     
+    var number = 0
+    let calibrationViewImages = ["mid", "right", "mid", "left"]
+
+    
+    func animateCalibrationView() {
+        calibrationText.alpha = 1.0
+        self.calibrationImage.alpha = 1.0
+        UIView.animate(withDuration: 1, animations: {
+            self.calibrationText.alpha = 0.0
+            self.calibrationImage.alpha = 0.0
+            self.calibrationImage.image = UIImage.init(named: self.calibrationViewImages[self.number%self.calibrationViewImages.count])
+            self.view.layoutIfNeeded()
+        }, completion: { (finished: Bool) in
+            self.number = self.number + 1
+            self.animateCalibrationView()
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             let boatAnimation = LOTAnimationView(name: "barcodeScanner")
             boatAnimation.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             boatAnimation.contentMode = .scaleAspectFill
@@ -70,19 +90,24 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             boatAnimation.loopAnimation = true
             boatAnimation.play()
             self.scannerView.addSubview(boatAnimation)
+            self.view.layoutIfNeeded()
         }
         
-        DispatchQueue.global().async {
-            let animationView = LOTAnimationView(name: "MovePhone")
-//            animationView.frame = CGRect(x: 20, y: 50, width: self.view.frame.width - 40, height: animationView.frame.height)
-            animationView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            animationView.contentMode = .scaleAspectFill
-            animationView.frame = self.scannerView.bounds
-            self.calibrationLoaderView.addSubview(animationView)
-            self.view.layoutIfNeeded()
-            animationView.loopAnimation = true
-            animationView.play()
+        DispatchQueue.main.async {
+            self.animateCalibrationView()
         }
+        
+//        let animationView = LOTAnimationView(name: "MovePhone")
+//        animationView.autoresizingMask = [.flexibleHeight]
+//        animationView.contentMode = .scaleAspectFit
+//        let screenWidth:Int = Int(self.view.frame.width)
+//        let screenHeight:Int = Int(self.view.frame.height)
+//        animationView.center.x = CGFloat(screenWidth/2)
+//        animationView.center.y = CGFloat(screenHeight/2)
+//        animationView.loopAnimation = true
+//        animationView.play()
+//        self.calibrationLoaderView.addSubview(animationView)
+//        self.calibrationLoaderView.layoutIfNeeded()
         
         self.calibrationTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.trackARPoints), userInfo: nil, repeats: true)
         
@@ -100,8 +125,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         
         // Tap Gesture Recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognize:)))
-        self.view.addGestureRecognizer(tapGesture)
-        
+        self.scannerView.addGestureRecognizer(tapGesture)
         
         // Setup coreml model
         // Set up Vision Model

@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct filterDescription {
-    var heading = ""
-    var subHeading = ""
-}
-
-
 class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, Expandable {
     
     var filterType = ""
@@ -28,15 +22,41 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
     func autoScroll () {
         let co = filterCollectionView.contentOffset.x
         let no = co + 10
-        UIView.animate(withDuration: 1, delay: 1, options: .curveEaseInOut, animations: { [weak self]() -> Void in
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseInOut, animations: { [weak self]() -> Void in
             self?.filterCollectionView.contentOffset = CGPoint(x: no, y: 0)
         }) { [weak self](finished) -> Void in
             self?.autoScroll()
         }
     }
     
+    func updateSelectedFilters(flag: Bool, i: Int) {
+        if filterType == "Content" {
+            switch i {
+                case 0: filtersSelectedBool.CalorieFilter = flag
+                case 1: filtersSelectedBool.NutsFilter = flag
+                case 2: filtersSelectedBool.EggsFilter = flag
+                case 3: filtersSelectedBool.SugarFilter = flag
+                case 4: filtersSelectedBool.CaffieneFilter = flag
+                case 5: filtersSelectedBool.LactoseFilter = flag
+                case 6: filtersSelectedBool.SoyaFilter = flag
+                case 7: filtersSelectedBool.VeganFilter = flag
+                default: return
+            }
+        } else {
+            switch i {
+                case 0: filtersSelectedBool.DietFoodFilter = flag
+                case 1: filtersSelectedBool.BabyFoodFilter = flag
+                case 2: filtersSelectedBool.GymFoodFilter = flag
+                case 3: filtersSelectedBool.NutritionalFoodFilter = flag
+                case 4: filtersSelectedBool.SpicyFoodFilter = flag
+                case 5: filtersSelectedBool.SportsDrinkFilter = flag
+                case 6: filtersSelectedBool.SoftDrinksFilter = flag
+                default: return
+            }
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if filterType == "Content" {
             if Constants.filtersContent[indexPath.row%Constants.filtersContent.count][3] as! Int == 1 {
                 Constants.filtersContent[indexPath.row%Constants.filtersContent.count][3] = 0
@@ -45,32 +65,9 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
             }
             for i in 0...Constants.filtersContent.count - 1 {
                 if Constants.filtersContent[i][3] as! Int == 1 {
-                    switch i {
-                    case 0: filtersSelectedBool.CalorieFilter = true
-                    case 1: filtersSelectedBool.NutsFilter = true
-                    case 2: filtersSelectedBool.EggsFilter = true
-                    case 3: filtersSelectedBool.SugarFilter = true
-                    case 4: filtersSelectedBool.CaffieneFilter = true
-                    case 5: filtersSelectedBool.LactoseFilter = true
-                    case 6: filtersSelectedBool.SoyaFilter = true
-                    case 7: filtersSelectedBool.VeganFilter = true
-                    default:
-                        continue
-                    }
-                    
+                    updateSelectedFilters(flag: true, i: i)
                 } else {
-                    switch i {
-                    case 0: filtersSelectedBool.CalorieFilter = false
-                    case 1: filtersSelectedBool.NutsFilter = false
-                    case 2: filtersSelectedBool.EggsFilter = false
-                    case 3: filtersSelectedBool.SugarFilter = false
-                    case 4: filtersSelectedBool.CaffieneFilter = false
-                    case 5: filtersSelectedBool.LactoseFilter = false
-                    case 6: filtersSelectedBool.SoyaFilter = false
-                    case 7: filtersSelectedBool.VeganFilter = false
-                    default:
-                        continue
-                    }
+                    updateSelectedFilters(flag: false, i: i)
                 }
             }
         } else {
@@ -81,30 +78,9 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
             }
             for i in 0...Constants.filtersCategories.count - 1 {
                 if Constants.filtersCategories[i][3] as! Int == 1 {
-                    switch i {
-                    case 0: filtersSelectedBool.DietFoodFilter = true
-                    case 1: filtersSelectedBool.BabyFoodFilter = true
-                    case 2: filtersSelectedBool.GymFoodFilter = true
-                    case 3: filtersSelectedBool.NutritionalFoodFilter = true
-                    case 4: filtersSelectedBool.SpicyFoodFilter = true
-                    case 5: filtersSelectedBool.SportsDrinkFilter = true
-                    case 6: filtersSelectedBool.SoftDrinksFilter = true
-                    default:
-                        continue
-                    }
-                    
+                    updateSelectedFilters(flag: true, i: i)
                 } else {
-                    switch i {
-                    case 0: filtersSelectedBool.DietFoodFilter = false
-                    case 1: filtersSelectedBool.BabyFoodFilter = false
-                    case 2: filtersSelectedBool.GymFoodFilter = false
-                    case 3: filtersSelectedBool.NutritionalFoodFilter = false
-                    case 4: filtersSelectedBool.SpicyFoodFilter = false
-                    case 5: filtersSelectedBool.SportsDrinkFilter = false
-                    case 6: filtersSelectedBool.SoftDrinksFilter = false
-                    default:
-                        continue
-                    }
+                    updateSelectedFilters(flag: false, i: i)
                 }
             }
         }
@@ -163,7 +139,7 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         filterCollectionView.dataSource = self
         let midIndexPath = IndexPath(row: totalFilters / 2 , section: 0)
         filterCollectionView.scrollToItem(at: midIndexPath,at: .centeredHorizontally,animated: false)
-        autoScroll()
+//        autoScroll()
     }
     
     func setGradientBackground(colorTop:UIColor, colorBottom:UIColor, view:UIView) {
