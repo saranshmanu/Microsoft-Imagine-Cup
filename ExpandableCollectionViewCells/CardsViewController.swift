@@ -46,6 +46,7 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
             card.layer.shadowOffset = CGSize(width: 0, height: 0)
             card.layer.shadowRadius = 20
             card.filters = Constants.filtersCategories
+            card.filterType = "Category"
             card.cardHeading.text = "Filters"
             let subheading = "Based on Food Category"
             card.cardSubheading.text = subheading.uppercased()
@@ -61,6 +62,7 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
             card.layer.shadowOffset = CGSize(width: 0, height: 0)
             card.layer.shadowRadius = 20
             card.filters = Constants.filtersContent
+            card.filterType = "Content"
             card.cardHeading.text = "Filters"
             let subheading = "Based on Content Type"
             card.cardSubheading.text = subheading.uppercased()

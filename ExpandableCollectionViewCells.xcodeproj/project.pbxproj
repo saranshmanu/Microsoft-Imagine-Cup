@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C1086ED618F424AC63E04E6 /* Pods_ExpandableCollectionViewCells.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */; };
 		950A0AA52205F313002E50EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA42205F313002E50EE /* PageViewController.swift */; };
 		950A0AA72205FFA1002E50EE /* ARTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */; };
 		950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA8220602D5002E50EE /* MobileNet.mlmodel */; };
@@ -15,10 +16,12 @@
 		956CFB372205688300883690 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB362205688300883690 /* CardsViewController.swift */; };
 		956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */; };
 		956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */; };
+		95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A34FEF220C14DC00DBB769 /* barcodeScanner.json */; };
 		95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9702208ACAA00F16FDE /* Constants.swift */; };
 		95ACA9732208C69000F16FDE /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */; };
 		95D09791220A5DF500247436 /* Product.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95D09790220A5DF500247436 /* Product.sks */; };
 		95D0979B220AAC9A00247436 /* foodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95D0979A220AAC9900247436 /* foodModel.mlmodel */; };
+		95E073FC220C1007004B2913 /* MovePhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E073FB220C1007004B2913 /* MovePhone.json */; };
 		DB181D3C2080B46900656A16 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB181D3B2080B46900656A16 /* Expandable.swift */; };
 		DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E62068C37600544FCD /* AppDelegate.swift */; };
 		DB48C4E92068C37600544FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E82068C37600544FCD /* ViewController.swift */; };
@@ -29,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.release.xcconfig"; sourceTree = "<group>"; };
 		950A0AA42205F313002E50EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingViewController.swift; sourceTree = "<group>"; };
 		950A0AA8220602D5002E50EE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
@@ -37,10 +41,14 @@
 		956CFB362205688300883690 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		95A34FEF220C14DC00DBB769 /* barcodeScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodeScanner.json; sourceTree = "<group>"; };
 		95ACA9702208ACAA00F16FDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		95D09790220A5DF500247436 /* Product.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Product.sks; sourceTree = "<group>"; };
 		95D0979A220AAC9900247436 /* foodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = foodModel.mlmodel; sourceTree = "<group>"; };
+		95E073FB220C1007004B2913 /* MovePhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovePhone.json; sourceTree = "<group>"; };
+		A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.debug.xcconfig"; sourceTree = "<group>"; };
+		CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpandableCollectionViewCells.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB181D3B2080B46900656A16 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		DB48C4E32068C37600544FCD /* ExpandableCollectionViewCells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableCollectionViewCells.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB48C4E62068C37600544FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,12 +65,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C1086ED618F424AC63E04E6 /* Pods_ExpandableCollectionViewCells.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09F81D268F7C736B69249ECC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		641DABC88C45E1446AF93E66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */,
+				598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DB181D3D2080B47600656A16 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +110,8 @@
 			children = (
 				DB48C4E52068C37600544FCD /* ExpandableCollectionViewCells */,
 				DB48C4E42068C37600544FCD /* Products */,
+				641DABC88C45E1446AF93E66 /* Pods */,
+				09F81D268F7C736B69249ECC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +140,8 @@
 				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
 				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
 				950A0AA42205F313002E50EE /* PageViewController.swift */,
+				95E073FB220C1007004B2913 /* MovePhone.json */,
+				95A34FEF220C14DC00DBB769 /* barcodeScanner.json */,
 				95D0979A220AAC9900247436 /* foodModel.mlmodel */,
 				950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */,
 				950A0AAC22071999002E50EE /* ProductInformation.sks */,
@@ -129,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB48C4F52068C37600544FCD /* Build configuration list for PBXNativeTarget "ExpandableCollectionViewCells" */;
 			buildPhases = (
+				032ECD0BED1B2194B1AC1743 /* [CP] Check Pods Manifest.lock */,
 				DB48C4DF2068C37600544FCD /* Sources */,
 				DB48C4E02068C37600544FCD /* Frameworks */,
 				DB48C4E12068C37600544FCD /* Resources */,
+				1476BC8ECB6AED56003C574A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -184,12 +216,61 @@
 				950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */,
 				95D09791220A5DF500247436 /* Product.sks in Resources */,
 				DB48C4F12068C37600544FCD /* LaunchScreen.storyboard in Resources */,
+				95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */,
+				95E073FC220C1007004B2913 /* MovePhone.json in Resources */,
 				DB48C4EE2068C37600544FCD /* Assets.xcassets in Resources */,
 				DB48C4EC2068C37600544FCD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		032ECD0BED1B2194B1AC1743 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExpandableCollectionViewCells-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1476BC8ECB6AED56003C574A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DB48C4DF2068C37600544FCD /* Sources */ = {
@@ -344,6 +425,7 @@
 		};
 		DB48C4F62068C37600544FCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -359,6 +441,7 @@
 		};
 		DB48C4F72068C37600544FCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

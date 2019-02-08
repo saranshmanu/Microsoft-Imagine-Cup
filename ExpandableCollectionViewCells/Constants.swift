@@ -36,7 +36,7 @@ class filterImagesName {
     static var DietFoodFilter = "DietFoodFilter"
     static var BabyFoodFilter = "BabyFoodFilter"
     static var GymFoodFilter = "GymFoodFilter"
-    static var NutitionalFoodFilter = "NutitionalFoodFilter"
+    static var NutritionalFoodFilter = "NutritionalFoodFilter"
     static var SpicyFoodFilter = "SpicyFoodFilter"
     static var SportsDrinkFilter = "SportsDrinkFilter"
     static var SoftDrinksFilter = "SoftDrinksFilter"
@@ -55,7 +55,7 @@ class filtersSelectedBool {
     static var DietFoodFilter = false
     static var BabyFoodFilter = false
     static var GymFoodFilter = false
-    static var NutitionalFoodFilter = false
+    static var NutritionalFoodFilter = false
     static var SpicyFoodFilter = false
     static var SportsDrinkFilter = false
     static var SoftDrinksFilter = false
@@ -74,7 +74,7 @@ class filtersName {
     static var DietFoodFilter = "DietFoodFilter"
     static var BabyFoodFilter = "BabyFoodFilter"
     static var GymFoodFilter = "GymFoodFilter"
-    static var NutitionalFoodFilter = "NutitionalFoodFilter"
+    static var NutritionalFoodFilter = "NutritionalFoodFilter"
     static var SpicyFoodFilter = "SpicyFoodFilter"
     static var SportsDrinkFilter = "SportsDrinkFilter"
     static var SoftDrinksFilter = "SoftDrinksFilter"
@@ -100,7 +100,7 @@ struct foodItem {
     var DietFood = false
     var BabyFood = false
     var GymFood = false
-    var NutitionalFood = false
+    var NutritionalFood = false
     var SpicyFood = false
     var SportsDrink = false
     var SoftDrinks = false
@@ -121,13 +121,14 @@ var database = [
         "Name": "Dairy Milk Spread",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
-        "DietFood": false,
-        "BabyFood": false,
-        "GymFood": false,
-        "NutitionalFood": false,
-        "SpicyFood": false,
-        "SportsDrink": false,
-        "SoftDrinks": false,
+        "DietFood": true,
+        "BabyFood": true,
+        "GymFood": true,
+        "NutritionalFood": true,
+        "SpicyFood": true,
+        "SportsDrink": true,
+        "SoftDrinks": true,
+        
         "Calorie":false,
         "Nuts":true,
         "Eggs":true,
@@ -141,11 +142,11 @@ var database = [
         "Name": "Fun Foods Mayonnaise",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
-        "DietFood": false,
-        "BabyFood": false,
+        "DietFood": true,
+        "BabyFood": true,
         "GymFood": false,
-        "NutitionalFood": false,
-        "SpicyFood": false,
+        "NutritionalFood": false,
+        "SpicyFood": true,
         "SportsDrink": false,
         "SoftDrinks": false,
         "Calorie":false,
@@ -162,11 +163,11 @@ var database = [
         "Manufacturer": "FritoLays",
         "Description": "randomText",
         "DietFood": false,
-        "BabyFood": false,
+        "BabyFood": true,
         "GymFood": false,
-        "NutitionalFood": false,
+        "NutritionalFood": true,
         "SpicyFood": false,
-        "SportsDrink": false,
+        "SportsDrink": true,
         "SoftDrinks": false,
         "Calorie":false,
         "Nuts":false,
@@ -182,12 +183,12 @@ var database = [
         "Manufacturer": "FritoLays",
         "Description": "randomText",
         "DietFood": false,
-        "BabyFood": false,
+        "BabyFood": true,
         "GymFood": false,
-        "NutitionalFood": false,
+        "NutritionalFood": true,
         "SpicyFood": false,
-        "SportsDrink": false,
-        "SoftDrinks": false,
+        "SportsDrink": true,
+        "SoftDrinks": true,
         "Calorie":false,
         "Nuts":true,
         "Eggs":true,
@@ -203,9 +204,9 @@ var database = [
         "Description": "randomText",
         "DietFood": false,
         "BabyFood": false,
-        "GymFood": false,
-        "NutitionalFood": false,
-        "SpicyFood": false,
+        "GymFood": true,
+        "NutritionalFood": false,
+        "SpicyFood": true,
         "SportsDrink": false,
         "SoftDrinks": false,
         "Calorie":false,

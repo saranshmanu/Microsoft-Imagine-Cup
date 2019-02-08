@@ -10,12 +10,39 @@ import UIKit
 import SceneKit
 import ARKit
 import Vision
+import Lottie
 
 class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     
+    // Create a session configuration
+    let configuration = ARWorldTrackingConfiguration()
+    let augmentedRealitySession = ARSession()
+    
+    @IBOutlet weak var scannerView: UIView!
+    @IBOutlet weak var calibrationLoaderView: UIVisualEffectView!
+    @IBOutlet weak var calibratingView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var debugTextView: UITextView!
+    var calibrationTimer: Timer!
     
+    @objc func trackARPoints() {
+        let currentFrame = self.augmentedRealitySession.currentFrame
+        if currentFrame?.rawFeaturePoints?.points != nil {
+            let featurePointsArray = currentFrame?.rawFeaturePoints?.points
+            let totalPoints:Int = (featurePointsArray?.count)!
+            if totalPoints >= 200 {
+                self.view.layoutIfNeeded()
+                UIView.animate(withDuration: 1) {
+                    self.calibrationLoaderView.alpha = 0.0
+                }
+                calibrationTimer.invalidate()
+            }
+            print(totalPoints)
+        } else {
+            print(0)
+        }
+    }
+
     var Nodes = [SCNNode]()
     var closestResults = [ARHitTestResult]()
     var detectedObjectCode = [String]()
@@ -25,7 +52,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         print("Changing nodes")
         Nodes[indexNumber].removeFromParentNode()
         Nodes.remove(at: indexNumber)
-        var closestResult = closestResults[indexNumber]
+        let closestResult = closestResults[indexNumber]
         let transform : matrix_float4x4 = closestResult.worldTransform
         let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
         let node : SCNNode = createNewChildNode(detectedObjectCode[indexNumber], totalFilters: totalFilters, listOfFilterImages: listOfFilterImages)
@@ -34,16 +61,31 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         Nodes.insert(node, at: indexNumber)
     }
     
-//    func selectedPinNode(number:Int, filter:String) {
-//        changeNodeText(text: filter, number: number)
-//    }
-//
-//    func deselectPinNode(number:Int, filter:String) {
-//        changeNodeText(text: filter, number: number)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.global().async {
+            let boatAnimation = LOTAnimationView(name: "barcodeScanner")
+            boatAnimation.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            boatAnimation.contentMode = .scaleAspectFill
+            boatAnimation.frame = self.scannerView.bounds
+            boatAnimation.loopAnimation = true
+            boatAnimation.play()
+            self.scannerView.addSubview(boatAnimation)
+        }
+        
+        DispatchQueue.global().async {
+            let animationView = LOTAnimationView(name: "MovePhone")
+            animationView.frame = CGRect(x: 20, y: 50, width: self.view.frame.width - 40, height: 300)
+            self.calibratingView.addSubview(animationView)
+            self.view.layoutIfNeeded()
+            animationView.loopAnimation = true
+            animationView.play()
+        }
+        
+        self.calibrationTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.trackARPoints), userInfo: nil, repeats: true)
+        
+        sceneView.session = augmentedRealitySession
         // Set the view's delegate
         sceneView.delegate = self
         // Show statistics such as fps and timing information
@@ -54,9 +96,12 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         // Enable Default Lighting - makes the 3D text a bit poppier.
         sceneView.autoenablesDefaultLighting = true
+        
         // Tap Gesture Recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognize:)))
-        self.sceneView.addGestureRecognizer(tapGesture)
+        self.view.addGestureRecognizer(tapGesture)
+        
+        
         // Setup coreml model
         // Set up Vision Model
         guard let selectedModel = try? VNCoreMLModel(for: foodModel().model) else { // (Optional) This can be replaced with other models on https://developer.apple.com/machine-learning/
@@ -70,20 +115,106 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         loopCoreMLUpdate()
         // Do any additional setup after loading the view.
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
+
         // Enable plane detection
         configuration.planeDetection = .horizontal
-        // Run the view's session
+        if #available(iOS 12.0, *) {
+            print("Available")
+            configuration.environmentTexturing = .automatic
+        } else {
+            // Fallback on earlier versions
+        }
         sceneView.session.run(configuration)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let totalDetected = detectedFood.count
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        sceneView.session.pause()
+    }
+    
+    let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
+    var visionRequests = [VNRequest]()
+    var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
+    
+    // MARK: - ARSCNViewDelegate
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
+            // Do any desired updates to SceneKit here.
+        }
+    }
+    
+    @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
+        // HIT TEST : REAL WORLD
+        // here the latest prediction will be used as the id to be sent to the cloud and once after receiveing the information about the product the app continues till then I will show a loader that the object is bering detected
+        DispatchQueue.global().async {
+            var temp = foodItem()
+            let prediction = self.latestPrediction
+            for i in 0...database.count - 1 {
+                let flag = database[i] as NSDictionary
+                let code = flag["Code"] as! String + " "
+                if code == prediction {
+                    print(code)
+                    temp.foodID = flag["Code"] as! String
+                    temp.foodName = flag["Name"] as! String
+                    temp.Calorie = flag["Calorie"] as! Bool
+                    temp.Nuts = flag["Nuts"] as! Bool
+                    temp.Eggs = flag["Eggs"] as! Bool
+                    temp.Sugar = flag["Sugar"] as! Bool
+                    temp.Caffiene = flag["Caffiene"] as! Bool
+                    temp.Lactose = flag["Lactose"] as! Bool
+                    temp.Soya = flag["Soya"] as! Bool
+                    temp.Vegan = flag["Vegan"] as! Bool
+                    
+                    temp.BabyFood = flag["BabyFood"] as! Bool
+                    temp.DietFood = flag["DietFood"] as! Bool
+                    temp.NutritionalFood = flag["NutritionalFood"] as! Bool
+                    temp.SoftDrinks = flag["SoftDrinks"] as! Bool
+                    temp.SportsDrink = flag["SportsDrink"] as! Bool
+                    temp.GymFood = flag["GymFood"] as! Bool
+                    temp.SpicyFood = flag["SpicyFood"] as! Bool
+                }
+            }
+            detectedFood.append(temp)
+            
+            // Get Screen Centre
+            let screenCentre:CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
+            let arHitTestResults:[ARHitTestResult] = self.sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
+            if let closestResult = arHitTestResults.first {
+                // Get Coordinates of HitTest
+                let transform:matrix_float4x4 = closestResult.worldTransform
+                let worldCoord:SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
+                // Create 3D Text
+                let node:SCNNode = self.createNewChildNode(temp.foodName, totalFilters: 0, listOfFilterImages: [])
+                self.sceneView.scene.rootNode.addChildNode(node)
+                node.position = worldCoord
+                self.Nodes.append(node)
+                self.closestResults.append(closestResult)
+                self.detectedObjectCode.append(temp.foodName)
+            }
+        }
+    }
+    
+    func addAnimation(node: SCNNode) {
+//        let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
+        let hoverUp = SCNAction.moveBy(x: 0, y: 0.02, z: 0, duration: 2.5)
+        let hoverDown = SCNAction.moveBy(x: 0, y: -0.02, z: 0, duration: 2.5)
+        let hoverSequence = SCNAction.sequence([hoverUp, hoverDown])
+        let rotateAndHover = SCNAction.group([hoverSequence])
+        let repeatForever = SCNAction.repeatForever(rotateAndHover)
+        node.runAction(repeatForever)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("View appeared again")
+        DispatchQueue.global().async {
+            let totalDetected = detectedFood.count
             if totalDetected != 0{
                 for i in 0...(totalDetected-1) {
+                    
                     var listOfFilterImages = [String]()
                     if detectedFood[i].DietFood == true && filtersSelectedBool.DietFoodFilter == true{
                         listOfFilterImages.append(filterImagesName.DietFoodFilter)
@@ -94,8 +225,8 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                     if detectedFood[i].GymFood == true && filtersSelectedBool.GymFoodFilter == true {
                         listOfFilterImages.append(filterImagesName.GymFoodFilter)
                     }
-                    if detectedFood[i].NutitionalFood == true && filtersSelectedBool.NutitionalFoodFilter == true {
-                        listOfFilterImages.append(filterImagesName.NutitionalFoodFilter)
+                    if detectedFood[i].NutritionalFood == true && filtersSelectedBool.NutritionalFoodFilter == true {
+                        listOfFilterImages.append(filterImagesName.NutritionalFoodFilter)
                     }
                     if detectedFood[i].SpicyFood == true && filtersSelectedBool.SpicyFoodFilter == true {
                         listOfFilterImages.append(filterImagesName.SpicyFoodFilter)
@@ -135,80 +266,6 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
         }
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        // Pause the view's session
-//        sceneView.session.pause()
-    }
-    
-    let dispatchQueueML = DispatchQueue(label: "com.hw.dispatchqueueml") // A Serial Queue
-    var visionRequests = [VNRequest]()
-    var latestPrediction : String = "…" // a variable containing the latest CoreML prediction
-    
-    // MARK: - ARSCNViewDelegate
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        DispatchQueue.main.async {
-            // Do any desired updates to SceneKit here.
-        }
-    }
-    
-    @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
-        // HIT TEST : REAL WORLD
-        // here the latest prediction will be used as the id to be sent to the cloud and once after receiveing the information about the product the app continues till then I will show a loader that the object is bering detected
-        var temp = foodItem()
-        let prediction = latestPrediction
-        for i in 0...database.count - 1 {
-            let flag = database[i] as NSDictionary
-            let code = flag["Code"] as! String + " "
-            if code == prediction {
-                print(code)
-                temp.foodID = flag["Code"] as! String
-                temp.foodName = flag["Name"] as! String
-                temp.Calorie = flag["Calorie"] as! Bool
-                temp.Nuts = flag["Nuts"] as! Bool
-                temp.Eggs = flag["Eggs"] as! Bool
-                temp.Sugar = flag["Sugar"] as! Bool
-                temp.Caffiene = flag["Caffiene"] as! Bool
-                temp.Lactose = flag["Lactose"] as! Bool
-                temp.Soya = flag["Soya"] as! Bool
-                temp.Vegan = flag["Vegan"] as! Bool
-            }
-        }
-        detectedFood.append(temp)
-        
-        // Get Screen Centre
-        let screenCentre:CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)
-        let arHitTestResults:[ARHitTestResult] = sceneView.hitTest(screenCentre, types: [.featurePoint]) // Alternatively, we could use '.existingPlaneUsingExtent' for more grounded hit-test-points.
-        if let closestResult = arHitTestResults.first {
-            // Get Coordinates of HitTest
-            let transform:matrix_float4x4 = closestResult.worldTransform
-            let worldCoord:SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-            // Create 3D Text
-            let node:SCNNode = createNewChildNode(temp.foodName, totalFilters: 0, listOfFilterImages: [])
-            sceneView.scene.rootNode.addChildNode(node)
-            node.position = worldCoord
-            Nodes.append(node)
-            closestResults.append(closestResult)
-            detectedObjectCode.append(temp.foodName)
-        }
-    }
-    
-    func addAnimation(node: SCNNode) {
-//        let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
-        let hoverUp = SCNAction.moveBy(x: 0, y: 0.02, z: 0, duration: 2.5)
-        let hoverDown = SCNAction.moveBy(x: 0, y: -0.02, z: 0, duration: 2.5)
-        let hoverSequence = SCNAction.sequence([hoverUp, hoverDown])
-        let rotateAndHover = SCNAction.group([hoverSequence])
-        let repeatForever = SCNAction.repeatForever(rotateAndHover)
-        node.runAction(repeatForever)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print("View appeared again")
     }
     
     
@@ -285,7 +342,6 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             let randomx = Float.random(in: -5...5) / 200
             let randomy = Float.random(in: -5...5) / 200
             let randomz = Float.random(in: -5...5) / 200
-
             let sphere = SCNSphere(radius: 0.001)
             sphere.firstMaterial?.diffuse.contents = UIColor.yellow
             let sphereNode = SCNNode(geometry: sphere)
@@ -321,9 +377,10 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         }
         // Get Classifications
         let classifications = observations[0...1] // top 2 results
-            .flatMap({ $0 as? VNClassificationObservation })
+            .compactMap({ $0 as? VNClassificationObservation })
             .map({ "\($0.identifier) \(String(format:"- %.2f", $0.confidence))" })
             .joined(separator: "\n")
+        
         DispatchQueue.main.async {
             // Print Classifications
             //            print(classifications)
@@ -338,7 +395,6 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             objectName = classifications.components(separatedBy: "-")[0]
             objectName = objectName.components(separatedBy: ",")[0]
             self.latestPrediction = objectName
-            
         }
     }
     

@@ -26,6 +26,7 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
     var filters = [
         ["", "", "", 0]
     ]
+    var filterType = ""
     
     var totalFilters = 100
     let size = [150]
@@ -46,10 +47,10 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         } else {
             filters[indexPath.row%filters.count][3] = 1
         }
-//        delegate?.updatesFilterOption()
-        for i in 0...filters.count - 1 {
-            if filters[i][3] as! Int == 1 {
-                switch i {
+        if filterType == "Content" {
+            for i in 0...filters.count - 1 {
+                if filters[i][3] as! Int == 1 {
+                    switch i {
                     case 0: filtersSelectedBool.CalorieFilter = true
                     case 1: filtersSelectedBool.NutsFilter = true
                     case 2: filtersSelectedBool.EggsFilter = true
@@ -60,13 +61,10 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
                     case 7: filtersSelectedBool.VeganFilter = true
                     default:
                         continue
-                }
-                
-            } else {
-                if i == 0 {
-                    filtersSelectedBool.CalorieFilter = false
-                }
-                switch i {
+                    }
+                    
+                } else {
+                    switch i {
                     case 0: filtersSelectedBool.CalorieFilter = false
                     case 1: filtersSelectedBool.NutsFilter = false
                     case 2: filtersSelectedBool.EggsFilter = false
@@ -77,6 +75,36 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
                     case 7: filtersSelectedBool.VeganFilter = false
                     default:
                         continue
+                    }
+                }
+            }
+        } else {
+            for i in 0...filters.count - 1 {
+                if filters[i][3] as! Int == 1 {
+                    switch i {
+                    case 0: filtersSelectedBool.DietFoodFilter = true
+                    case 1: filtersSelectedBool.BabyFoodFilter = true
+                    case 2: filtersSelectedBool.GymFoodFilter = true
+                    case 3: filtersSelectedBool.NutritionalFoodFilter = true
+                    case 4: filtersSelectedBool.SpicyFoodFilter = true
+                    case 5: filtersSelectedBool.SportsDrinkFilter = true
+                    case 6: filtersSelectedBool.SoftDrinksFilter = true
+                    default:
+                        continue
+                    }
+                    
+                } else {
+                    switch i {
+                    case 0: filtersSelectedBool.DietFoodFilter = false
+                    case 1: filtersSelectedBool.BabyFoodFilter = false
+                    case 2: filtersSelectedBool.GymFoodFilter = false
+                    case 3: filtersSelectedBool.NutritionalFoodFilter = false
+                    case 4: filtersSelectedBool.SpicyFoodFilter = false
+                    case 5: filtersSelectedBool.SportsDrinkFilter = false
+                    case 6: filtersSelectedBool.SoftDrinksFilter = false
+                    default:
+                        continue
+                    }
                 }
             }
         }
