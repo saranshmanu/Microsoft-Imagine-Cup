@@ -19,8 +19,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     let augmentedRealitySession = ARSession()
     
     @IBOutlet weak var scannerView: UIView!
-    @IBOutlet weak var calibrationLoaderView: UIVisualEffectView!
-    @IBOutlet weak var calibratingView: UIView!
+    @IBOutlet weak var calibrationLoaderView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var debugTextView: UITextView!
     var calibrationTimer: Timer!
@@ -39,7 +38,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             }
             print(totalPoints)
         } else {
-            print(0)
+//            print(0)
         }
     }
 
@@ -49,7 +48,6 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     var totalLength = 0
     
     func changeNode(text:String, indexNumber:Int, listOfFilterImages:[String], totalFilters: Int){
-        print("Changing nodes")
         Nodes[indexNumber].removeFromParentNode()
         Nodes.remove(at: indexNumber)
         let closestResult = closestResults[indexNumber]
@@ -76,8 +74,11 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         
         DispatchQueue.global().async {
             let animationView = LOTAnimationView(name: "MovePhone")
-            animationView.frame = CGRect(x: 20, y: 50, width: self.view.frame.width - 40, height: 300)
-            self.calibratingView.addSubview(animationView)
+//            animationView.frame = CGRect(x: 20, y: 50, width: self.view.frame.width - 40, height: animationView.frame.height)
+            animationView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            animationView.contentMode = .scaleAspectFill
+            animationView.frame = self.scannerView.bounds
+            self.calibrationLoaderView.addSubview(animationView)
             self.view.layoutIfNeeded()
             animationView.loopAnimation = true
             animationView.play()
@@ -117,7 +118,11 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         
 
         // Enable plane detection
-        configuration.planeDetection = .horizontal
+        if #available(iOS 11.3, *) {
+            configuration.planeDetection = .vertical
+        } else {
+            // Fallback on earlier versions
+        }
         if #available(iOS 12.0, *) {
             print("Available")
             configuration.environmentTexturing = .automatic
@@ -160,6 +165,8 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                     print(code)
                     temp.foodID = flag["Code"] as! String
                     temp.foodName = flag["Name"] as! String
+                    temp.foodDescription = flag["Description"] as! String
+                    temp.foodType = flag["Type"] as! String
                     temp.Calorie = flag["Calorie"] as! Bool
                     temp.Nuts = flag["Nuts"] as! Bool
                     temp.Eggs = flag["Eggs"] as! Bool
@@ -176,6 +183,9 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                     temp.SportsDrink = flag["SportsDrink"] as! Bool
                     temp.GymFood = flag["GymFood"] as! Bool
                     temp.SpicyFood = flag["SpicyFood"] as! Bool
+                    
+                    let randomColor = Int.random(in: 1...themeColors.count)
+                    temp.foodColorTheme = themeColors[randomColor - 1]
                 }
             }
             detectedFood.append(temp)
@@ -210,7 +220,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         print("View appeared again")
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             let totalDetected = detectedFood.count
             if totalDetected != 0{
                 for i in 0...(totalDetected-1) {
@@ -274,83 +284,89 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         let billboardConstraint = SCNBillboardConstraint()
         billboardConstraint.freeAxes = SCNBillboardAxis.Y
         let childParent = SCNNode()
-        
-//        -----------------------------------------------------------------------------------------------
-        
         let prediction = text
-        let textDepth : Float = 0.01
-        let text = SCNText(string: text, extrusionDepth: CGFloat(textDepth))
-        let font = UIFont(name: "Arial", size: 0.2)
-        text.font = font
-        text.alignmentMode = kCAAlignmentCenter
-        text.firstMaterial?.diffuse.contents = UIColor.white
-        text.firstMaterial?.specular.contents = UIColor.white
-        text.firstMaterial?.isDoubleSided = true
-        text.chamferRadius = CGFloat(textDepth)
-        let (minBound, maxBound) = text.boundingBox
-        let textNode = SCNNode(geometry: text)
-        textNode.pivot = SCNMatrix4MakeTranslation( (maxBound.x - minBound.x)/2, minBound.y, textDepth/2)
-        textNode.scale = SCNVector3Make(0.2, 0.2, -0.2)
+        
+        let planeText = DispatchQueue(label: "perform_task_with_plane_Text")
+        let filters = DispatchQueue(label: "perform_task_with_filters")
+        let pointer = DispatchQueue(label: "perform_task_with_pointer")
+        
+//        -----------------------------------------------------------------------------------------------
+        
+//        let textDepth : Float = 0.01
+//        let text = SCNText(string: text, extrusionDepth: CGFloat(textDepth))
+//        let font = UIFont(name: "Arial", size: 0.2)
+//        text.font = font
+//        text.alignmentMode = kCAAlignmentCenter
+//        text.firstMaterial?.diffuse.contents = UIColor.white
+//        text.firstMaterial?.specular.contents = UIColor.white
+//        text.firstMaterial?.isDoubleSided = true
+//        text.chamferRadius = CGFloat(textDepth)
+//        let (minBound, maxBound) = text.boundingBox
+//        let textNode = SCNNode(geometry: text)
+//        textNode.pivot = SCNMatrix4MakeTranslation( (maxBound.x - minBound.x)/2, minBound.y, textDepth/2)
+//        textNode.scale = SCNVector3Make(0.2, 0.2, -0.2)
+//        childParent.addChildNode(textNode)
+
+        
+//        -----------------------------------------------------------------------------------------------
+        
+        planeText.sync {
+            let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.05))
+            plane.cornerRadius = 0
+            let spriteKitScene = SKScene(fileNamed: "ProductInformation")
+            //        spriteKitScene?.backgroundColor = UIColor.blue
+            let label = SKLabelNode(fontNamed: "Arial-Bold")
+            label.text = prediction
+            label.fontSize = 60
+            spriteKitScene?.addChild(label)
+            plane.firstMaterial?.diffuse.contents = spriteKitScene
+            plane.firstMaterial?.isDoubleSided = false
+            plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
+            let planeNode = SCNNode(geometry: plane)
+            planeNode.position = SCNVector3Make(0, 0.1, 0)
+            addAnimation(node: planeNode)
+            childParent.addChildNode(planeNode)
+        }
         
 //        -----------------------------------------------------------------------------------------------
 
-        
-        let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.05))
-        plane.cornerRadius = 0
-        let spriteKitScene = SKScene(fileNamed: "ProductInformation")
-//        spriteKitScene?.backgroundColor = UIColor.blue
-        let label = SKLabelNode(fontNamed: "Arial-Bold")
-        label.text = prediction
-        label.fontSize = 60
-        spriteKitScene?.addChild(label)
-        plane.firstMaterial?.diffuse.contents = spriteKitScene
-        plane.firstMaterial?.isDoubleSided = false
-        plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.position = SCNVector3Make(0, 0.1, 0)
-        addAnimation(node: planeNode)
-        
-//        -----------------------------------------------------------------------------------------------
-
-        let flag = totalFilters
-        
-        if flag != 0 {
-            for i in 1...flag {
-                let filterCard = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.1))
-                filterCard.cornerRadius = 0
-                let filterCardScene = SKScene(fileNamed: "Product")
-                filterCardScene?.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
-                let filterCardImage = SKSpriteNode(imageNamed: listOfFilterImages[i-1]) // listOfFilterImages[i]
-//                filterCardImage.size.height = (filterCardScene?.frame.height)!
-                filterCardScene?.addChild(filterCardImage)
-                filterCard.firstMaterial?.diffuse.contents = filterCardScene
-                filterCard.firstMaterial?.isDoubleSided = false
-                filterCard.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
-                let filterCardNode = SCNNode(geometry: filterCard)
-                let yAxis = (Double(i)) * 0.11 + 0.09
-                filterCardNode.position = SCNVector3Make(0, Float(yAxis), 0)
-                childParent.addChildNode(filterCardNode)
-                
+        filters.sync {
+            let flag = totalFilters
+            if flag != 0 {
+                for i in 1...flag {
+                    let filterCard = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.1))
+                    filterCard.cornerRadius = 0
+                    let filterCardScene = SKScene(fileNamed: "Product")
+                    filterCardScene?.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.3)
+                    let filterCardImage = SKSpriteNode(imageNamed: listOfFilterImages[i-1]) // listOfFilterImages[i]
+                    //filterCardImage.size.height = (filterCardScene?.frame.height)!
+                    filterCardScene?.addChild(filterCardImage)
+                    filterCard.firstMaterial?.diffuse.contents = filterCardScene
+                    filterCard.firstMaterial?.isDoubleSided = false
+                    filterCard.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
+                    let filterCardNode = SCNNode(geometry: filterCard)
+                    let yAxis = (Double(i)) * 0.11 + 0.09
+                    filterCardNode.position = SCNVector3Make(0, Float(yAxis), 0)
+                    childParent.addChildNode(filterCardNode)
+                    
+                }
             }
         }
         
-        
 //        -----------------------------------------------------------------------------------------------
-
-        
-        for _ in 0...100 {
-            let randomx = Float.random(in: -5...5) / 200
-            let randomy = Float.random(in: -5...5) / 200
-            let randomz = Float.random(in: -5...5) / 200
-            let sphere = SCNSphere(radius: 0.001)
-            sphere.firstMaterial?.diffuse.contents = UIColor.yellow
-            let sphereNode = SCNNode(geometry: sphere)
-            sphereNode.position = SCNVector3Make(randomx, randomy, randomz)
-            childParent.addChildNode(sphereNode)
+        pointer.sync {
+//            for _ in 0...10 {
+//                let randomx = Float.random(in: -5...5) / 200
+//                let randomy = Float.random(in: -5...5) / 200
+//                let randomz = Float.random(in: -5...5) / 200
+//                let sphere = SCNSphere(radius: 0.001)
+//                sphere.firstMaterial?.diffuse.contents = UIColor.yellow
+//                let sphereNode = SCNNode(geometry: sphere)
+//                sphereNode.position = SCNVector3Make(randomx, randomy, randomz)
+//                childParent.addChildNode(sphereNode)
+//            }
         }
         
-
-        childParent.addChildNode(planeNode)
         childParent.constraints = [billboardConstraint]
         return childParent
     }

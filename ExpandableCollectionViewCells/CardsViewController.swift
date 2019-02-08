@@ -10,6 +10,10 @@ import UIKit
 
 class CardsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    override func viewWillAppear(_ animated: Bool) {
+        cardsCollectionView.reloadData()
+    }
+    
     private var hiddenCells:[ProductCollectionViewCell] = []
     private var expandedCell:ProductCollectionViewCell?
     private var filterCell:[CardsCollectionViewCell] = []
@@ -20,7 +24,7 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3 + detectedFood.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -31,44 +35,52 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
         }
     }
     
+    func updateCardShadows(card: CardsCollectionViewCell) -> CardsCollectionViewCell {
+        let flag = card
+        flag.contentView.backgroundColor = .white
+        flag.contentView.layer.cornerRadius = 10
+        flag.contentView.layer.masksToBounds = true
+        flag.layer.masksToBounds = false
+        flag.layer.shadowColor = UIColor.black.cgColor
+        flag.layer.shadowOpacity = 0.4
+        flag.layer.shadowOffset = CGSize(width: 0, height: 0)
+        flag.layer.shadowRadius = 20
+        return flag
+    }
+    
+    func updateCardHeading(heading: String, subHeading: String, card: CardsCollectionViewCell) -> CardsCollectionViewCell {
+        let flag = card
+        flag.cardHeading.text = "Filters"
+        let subheading = "Based on Food Category"
+        flag.cardSubheading.text = subheading.uppercased()
+        return flag
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
             let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! HeaderCollectionViewCell
             return card
         } else if indexPath.row == 1 {
-            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
-            card.contentView.backgroundColor = .white
-            card.contentView.layer.cornerRadius = 10
-            card.contentView.layer.masksToBounds = true
-            card.layer.masksToBounds = false
-            card.layer.shadowColor = UIColor.black.cgColor
-            card.layer.shadowOpacity = 0.4
-            card.layer.shadowOffset = CGSize(width: 0, height: 0)
-            card.layer.shadowRadius = 20
-            card.filters = Constants.filtersCategories
+            var card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
             card.filterType = "Category"
-            card.cardHeading.text = "Filters"
-            let subheading = "Based on Food Category"
-            card.cardSubheading.text = subheading.uppercased()
+            card = updateCardShadows(card: card)
+            card = updateCardHeading(heading: "Filters", subHeading: "Based on Food Category", card: card)
+            card.reloadInputViews()
             return card
         } else if indexPath.row == 2 {
-            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
-            card.contentView.backgroundColor = .white
-            card.contentView.layer.cornerRadius = 10
-            card.contentView.layer.masksToBounds = true
-            card.layer.masksToBounds = false
-            card.layer.shadowColor = UIColor.black.cgColor
-            card.layer.shadowOpacity = 0.4
-            card.layer.shadowOffset = CGSize(width: 0, height: 0)
-            card.layer.shadowRadius = 20
-            card.filters = Constants.filtersContent
+            var card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
             card.filterType = "Content"
-            card.cardHeading.text = "Filters"
-            let subheading = "Based on Content Type"
-            card.cardSubheading.text = subheading.uppercased()
+            card = updateCardShadows(card: card)
+            card = updateCardHeading(heading: "Filters", subHeading: "Based on Content Type", card: card)
+            card.reloadInputViews()
             return card
         } else {
-            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath)
+            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "productCard", for: indexPath) as! ProductCollectionViewCell
+            let flag = detectedFood[indexPath.row - 3]
+            card.productName.text = flag.foodName as String
+            card.productDescription.text = flag.foodDescription as String
+            card.productType.text = flag.foodType as String
+            card.productCardColorTheme.backgroundColor = flag.foodColorTheme
             return card
         }
     }
@@ -138,5 +150,15 @@ class CardsViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         cardsCollectionView.delegate = self
         cardsCollectionView.dataSource = self
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if self.view.frame.width >= 400 {
+            let cellWidth: CGFloat = 317 // Your cell width
+            let numberOfCells = floor(view.frame.size.width / cellWidth)
+            let edgeInsets = (view.frame.size.width - (numberOfCells * cellWidth)) / (numberOfCells + 1)
+            return UIEdgeInsetsMake(50, edgeInsets, 0, edgeInsets)
+        }
+        return UIEdgeInsetsMake(0, 0, 0, 0)
     }
 }

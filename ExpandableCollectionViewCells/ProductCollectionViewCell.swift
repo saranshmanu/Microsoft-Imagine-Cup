@@ -10,6 +10,12 @@ import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell, Expandable {
     
+    @IBOutlet weak var productCardColorTheme: UIView!
+    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productType: UILabel!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    
     private var initialFrame: CGRect?
     private var initialCornerRadius: CGFloat?
     

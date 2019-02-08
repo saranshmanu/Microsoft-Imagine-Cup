@@ -19,9 +19,11 @@
 		95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A34FEF220C14DC00DBB769 /* barcodeScanner.json */; };
 		95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9702208ACAA00F16FDE /* Constants.swift */; };
 		95ACA9732208C69000F16FDE /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */; };
+		95B9DC88220D494200B1A644 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC87220D494200B1A644 /* Extensions.swift */; };
+		95B9DC8E220D8E1300B1A644 /* MovePhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9DC8D220D8E1300B1A644 /* MovePhone.json */; };
+		95B9DC92220D8F5A00B1A644 /* NEwSPOT.json in Resources */ = {isa = PBXBuildFile; fileRef = 95B9DC91220D8F5A00B1A644 /* NEwSPOT.json */; };
 		95D09791220A5DF500247436 /* Product.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95D09790220A5DF500247436 /* Product.sks */; };
 		95D0979B220AAC9A00247436 /* foodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95D0979A220AAC9900247436 /* foodModel.mlmodel */; };
-		95E073FC220C1007004B2913 /* MovePhone.json in Resources */ = {isa = PBXBuildFile; fileRef = 95E073FB220C1007004B2913 /* MovePhone.json */; };
 		DB181D3C2080B46900656A16 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB181D3B2080B46900656A16 /* Expandable.swift */; };
 		DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E62068C37600544FCD /* AppDelegate.swift */; };
 		DB48C4E92068C37600544FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E82068C37600544FCD /* ViewController.swift */; };
@@ -44,9 +46,11 @@
 		95A34FEF220C14DC00DBB769 /* barcodeScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodeScanner.json; sourceTree = "<group>"; };
 		95ACA9702208ACAA00F16FDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		95B9DC87220D494200B1A644 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		95B9DC8D220D8E1300B1A644 /* MovePhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovePhone.json; sourceTree = "<group>"; };
+		95B9DC91220D8F5A00B1A644 /* NEwSPOT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NEwSPOT.json; sourceTree = "<group>"; };
 		95D09790220A5DF500247436 /* Product.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Product.sks; sourceTree = "<group>"; };
 		95D0979A220AAC9900247436 /* foodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = foodModel.mlmodel; sourceTree = "<group>"; };
-		95E073FB220C1007004B2913 /* MovePhone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovePhone.json; sourceTree = "<group>"; };
 		A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.debug.xcconfig"; sourceTree = "<group>"; };
 		CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpandableCollectionViewCells.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB181D3B2080B46900656A16 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
@@ -137,10 +141,11 @@
 				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
 				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
 				956CFB362205688300883690 /* CardsViewController.swift */,
+				95B9DC8D220D8E1300B1A644 /* MovePhone.json */,
 				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
+				95B9DC91220D8F5A00B1A644 /* NEwSPOT.json */,
 				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
 				950A0AA42205F313002E50EE /* PageViewController.swift */,
-				95E073FB220C1007004B2913 /* MovePhone.json */,
 				95A34FEF220C14DC00DBB769 /* barcodeScanner.json */,
 				95D0979A220AAC9900247436 /* foodModel.mlmodel */,
 				950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */,
@@ -148,6 +153,7 @@
 				95ACA9702208ACAA00F16FDE /* Constants.swift */,
 				95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */,
 				95D09790220A5DF500247436 /* Product.sks */,
+				95B9DC87220D494200B1A644 /* Extensions.swift */,
 			);
 			path = ExpandableCollectionViewCells;
 			sourceTree = "<group>";
@@ -213,13 +219,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B9DC92220D8F5A00B1A644 /* NEwSPOT.json in Resources */,
 				950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */,
 				95D09791220A5DF500247436 /* Product.sks in Resources */,
 				DB48C4F12068C37600544FCD /* LaunchScreen.storyboard in Resources */,
 				95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */,
-				95E073FC220C1007004B2913 /* MovePhone.json in Resources */,
 				DB48C4EE2068C37600544FCD /* Assets.xcassets in Resources */,
 				DB48C4EC2068C37600544FCD /* Main.storyboard in Resources */,
+				95B9DC8E220D8E1300B1A644 /* MovePhone.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +294,7 @@
 				DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */,
 				DB48C4F92068C71300544FCD /* ExpandableCell.swift in Sources */,
 				950A0AA52205F313002E50EE /* PageViewController.swift in Sources */,
+				95B9DC88220D494200B1A644 /* Extensions.swift in Sources */,
 				950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */,
 				DB181D3C2080B46900656A16 /* Expandable.swift in Sources */,
 				956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */,

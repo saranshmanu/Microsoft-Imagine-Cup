@@ -8,6 +8,7 @@
 
 
 import Foundation
+import UIKit
 
 class Constants {
     static var filtersContent = [
@@ -91,11 +92,23 @@ class filtersName {
 
 var detectedFood = [foodItem]()
 
+var themeColors = [
+    UIColor.init(red: 216/255, green: 52/255, blue: 76/255, alpha: 0.9),
+    UIColor.init(red: 216/255, green: 140/255, blue: 52/255, alpha: 0.9),
+    UIColor.init(red: 216/255, green: 53/255, blue: 146/255, alpha: 0.9),
+    UIColor.init(red: 52/255, green: 126/255, blue: 215/255, alpha: 0.9),
+    UIColor.init(red: 54/255, green: 216/255, blue: 131/255, alpha: 0.9),
+    UIColor.init(red: 195/255, green: 216/255, blue: 53/255, alpha: 0.9)
+]
+
 struct foodItem {
     var foodID = ""
-    var foodManufacturer = ""
     var foodName = ""
     var foodDescription = ""
+    var foodManufacturer = ""
+    var foodImage = ""
+    var foodColorTheme = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.7)
+    var foodType = ""
     
     var DietFood = false
     var BabyFood = false
@@ -121,6 +134,7 @@ var database = [
         "Name": "Dairy Milk Spread",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
+        "Type": "randomText",
         "DietFood": true,
         "BabyFood": true,
         "GymFood": true,
@@ -142,6 +156,7 @@ var database = [
         "Name": "Fun Foods Mayonnaise",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
+        "Type": "randomText",
         "DietFood": true,
         "BabyFood": true,
         "GymFood": false,
@@ -162,6 +177,7 @@ var database = [
         "Name": "Mixture",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
+        "Type": "randomText",
         "DietFood": false,
         "BabyFood": true,
         "GymFood": false,
@@ -182,6 +198,7 @@ var database = [
         "Name": "Haldiram Rasgulla",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
+        "Type": "randomText",
         "DietFood": false,
         "BabyFood": true,
         "GymFood": false,
@@ -202,6 +219,7 @@ var database = [
         "Name": "Haldiram Bhujia Sev",
         "Manufacturer": "FritoLays",
         "Description": "randomText",
+        "Type": "randomText",
         "DietFood": false,
         "BabyFood": false,
         "GymFood": true,
