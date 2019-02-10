@@ -7,5 +7,6 @@ target 'ExpandableCollectionViewCells' do
 
   # Pods for ExpandableCollectionViewCells
 pod 'lottie-ios'
+pod 'Alamofire'
 
 end

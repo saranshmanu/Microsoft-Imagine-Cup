@@ -335,13 +335,13 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
 //        -----------------------------------------------------------------------------------------------
         
         planeText.sync {
-            let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.05))
+            let plane = SCNPlane(width: CGFloat(0.1), height: CGFloat(0.0326))
             plane.cornerRadius = 0
             let spriteKitScene = SKScene(fileNamed: "ProductInformation")
-            //        spriteKitScene?.backgroundColor = UIColor.blue
+//        spriteKitScene?.backgroundColor = UIColor.blue
             let label = SKLabelNode(fontNamed: "Arial-Bold")
             label.text = prediction
-            label.fontSize = 60
+            label.fontSize = 40
             spriteKitScene?.addChild(label)
             plane.firstMaterial?.diffuse.contents = spriteKitScene
             plane.firstMaterial?.isDoubleSided = false

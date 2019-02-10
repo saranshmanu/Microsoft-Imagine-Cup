@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -36,8 +37,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signInAction(_ sender: Any) {
         if usernameTextField.text != "" && passwordTextField.text != "" {
             changeControls(flag: false)
-            changeControls(flag: true)
-            performSegue(withIdentifier: "login", sender: nil)
+            let params = ["email": usernameTextField.text!, "password": passwordTextField.text!] as [String : Any]
+            Alamofire.request(base_url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: ["Content-Type": "application/json"]).responseJSON { (response) in
+                if response.result.isSuccess == true {
+                    if let a:NSDictionary = response.result.value! as? NSDictionary {
+                        if a["code"] as! Int == 0 {
+                            self.changeControls(flag: true)
+                            self.performSegue(withIdentifier: "login", sender: nil)
+                        } else {
+                            self.changeControls(flag: true)
+                            self.alertView(title: "Authentication Error!", message: "Please check your login details")
+                        }
+                    }
+                    self.changeControls(flag: true)
+                    self.alertView(title: "Authentication Error!", message: "Please check your login details")
+                }
+                self.changeControls(flag: true)
+                self.alertView(title: "Authentication Error!", message: "Please check your login details")
+            }
         } else {
             alertView(title: "Field Empty", message: "Please fill in the required information")
         }
