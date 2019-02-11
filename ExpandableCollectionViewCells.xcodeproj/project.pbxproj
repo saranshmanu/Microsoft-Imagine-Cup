@@ -13,6 +13,7 @@
 		950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA8220602D5002E50EE /* MobileNet.mlmodel */; };
 		950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */ = {isa = PBXBuildFile; fileRef = 950A0AAC22071999002E50EE /* ProductInformation.sks */; };
 		955E12AF22107C110023E7B4 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */; };
+		955E12B12211AFEC0023E7B4 /* Warning.sks in Resources */ = {isa = PBXBuildFile; fileRef = 955E12B02211AFEC0023E7B4 /* Warning.sks */; };
 		956CFB352205651100883690 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB342205651100883690 /* CardsCollectionViewCell.swift */; };
 		956CFB372205688300883690 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB362205688300883690 /* CardsViewController.swift */; };
 		956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */; };
@@ -42,6 +43,7 @@
 		950A0AA8220602D5002E50EE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		950A0AAC22071999002E50EE /* ProductInformation.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ProductInformation.sks; sourceTree = "<group>"; };
 		955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
+		955E12B02211AFEC0023E7B4 /* Warning.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Warning.sks; sourceTree = "<group>"; };
 		956CFB342205651100883690 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
 		956CFB362205688300883690 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				95B9DC9B220E178900B1A644 /* RegisterViewController.swift */,
 				957CF45622104D4700E39116 /* DiseasesViewController.swift */,
 				955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */,
+				955E12B02211AFEC0023E7B4 /* Warning.sks */,
 			);
 			path = ExpandableCollectionViewCells;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */,
 				95D09791220A5DF500247436 /* Product.sks in Resources */,
 				DB48C4F12068C37600544FCD /* LaunchScreen.storyboard in Resources */,
+				955E12B12211AFEC0023E7B4 /* Warning.sks in Resources */,
 				95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */,
 				DB48C4EE2068C37600544FCD /* Assets.xcassets in Resources */,
 				DB48C4EC2068C37600544FCD /* Main.storyboard in Resources */,

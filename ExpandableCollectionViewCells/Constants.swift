@@ -46,6 +46,16 @@ class Constants {
     ]
 }
 
+class Ingredient {
+    static var Nuts = "Nuts"
+    static var Eggs = "Eggs"
+    static var Sugar = "Sugar"
+    static var Caffiene = "Caffiene"
+    static var Lactose = "Lactose"
+    static var Soya = "Soya"
+    static var Vegan = "Vegan"
+}
+
 class filterImagesName {
     static var DietFoodFilter = "DietFoodFilter"
     static var BabyFoodFilter = "BabyFoodFilter"
@@ -142,44 +152,26 @@ struct foodItem {
     var Lactose = false
     var Soya = false
     var Vegan = false
+    
+    var warning = false
 }
 
 var database = [
-//    [
-//        "Code": "rcAziPIODP5TBbO",
-//        "Name": "Emblica Juice",
-//        "Manufacturer": "FritoLays",
-//        "Description": "randomText",
-//        "Type": "randomText",
-//        "DietFood": true,
-//        "BabyFood": true,
-//        "GymFood": true,
-//        "NutritionalFood": true,
-//        "SpicyFood": true,
-//        "SportsDrink": true,
-//        "SoftDrinks": true,
-//        "Calorie":false,
-//        "Nuts":true,
-//        "Eggs":true,
-//        "Sugar" :false,
-//        "Caffiene" :true,
-//        "Lactose" :true,
-//        "Soya" :true,
-//        "Vegan" :false
-//    ],
     [
         "Code": "pnzaBVjEYwT9ke7",
         "Name": "Lays Spanish Tomato",
         "Manufacturer": "FritoLays",
-        "Description": "randomText",
-        "Type": "randomText",
-        "DietFood": true,
-        "BabyFood": true,
-        "GymFood": true,
-        "NutritionalFood": true,
-        "SpicyFood": true,
-        "SportsDrink": true,
-        "SoftDrinks": true,
+        "Description": "",
+        "Type": "",
+        "DietFood": false,
+        "BabyFood": false,
+        "GymFood": false,
+        "NutritionalFood": false,
+        "SpicyFood": false,
+        "SportsDrink": false,
+        "SoftDrinks": false,
+        
+        
         "Calorie":false,
         "Nuts":true,
         "Eggs":true,
@@ -193,15 +185,17 @@ var database = [
         "Code": "2t6jfTanIbQ5qx1",
         "Name": "Kurkure Triangles Mango Achaari",
         "Manufacturer": "FritoLays",
-        "Description": "randomText",
-        "Type": "randomText",
-        "DietFood": true,
-        "BabyFood": true,
+        "Description": "",
+        "Type": "",
+        "DietFood": false,
+        "BabyFood": false,
         "GymFood": false,
         "NutritionalFood": false,
         "SpicyFood": true,
         "SportsDrink": false,
         "SoftDrinks": false,
+        
+        
         "Calorie":false,
         "Nuts":false,
         "Eggs":false,
@@ -214,29 +208,31 @@ var database = [
         "Code": "JBWaaWhdK01GGdv",
         "Name": "Dairy Milk",
         "Manufacturer": "FritoLays",
-        "Description": "randomText",
-        "Type": "randomText",
-        "DietFood": true,
-        "BabyFood": true,
+        "Description": "",
+        "Type": "",
+        "DietFood": false,
+        "BabyFood": false,
         "GymFood": false,
         "NutritionalFood": false,
-        "SpicyFood": true,
+        "SpicyFood": false,
         "SportsDrink": false,
         "SoftDrinks": false,
+        
+        
         "Calorie":false,
-        "Nuts":false,
-        "Eggs":false,
+        "Nuts":true,
+        "Eggs":true,
         "Sugar" :false,
-        "Caffiene" :true,
-        "Lactose" :true,
+        "Caffiene" :false,
+        "Lactose" :false,
         "Soya" :true,
-        "Vegan" :true
+        "Vegan" :false
     ],[
         "Code": "hzCWdIft761lQOG",
         "Name": "Imli",
         "Manufacturer": "FritoLays",
-        "Description": "randomText",
-        "Type": "randomText",
+        "Description": "",
+        "Type": "",
         "DietFood": true,
         "BabyFood": true,
         "GymFood": false,
@@ -244,8 +240,10 @@ var database = [
         "SpicyFood": true,
         "SportsDrink": false,
         "SoftDrinks": false,
-        "Calorie":false,
-        "Nuts":false,
+        
+        
+        "Calorie":true,
+        "Nuts":true,
         "Eggs":false,
         "Sugar" :false,
         "Caffiene" :true,
@@ -253,68 +251,4 @@ var database = [
         "Soya" :true,
         "Vegan" :true
     ]
-//    ,[
-//        "Code": "FWu9fQ4qvCBoSET",
-//        "Name": "Mixture",
-//        "Manufacturer": "FritoLays",
-//        "Description": "randomText",
-//        "Type": "randomText",
-//        "DietFood": false,
-//        "BabyFood": true,
-//        "GymFood": false,
-//        "NutritionalFood": true,
-//        "SpicyFood": false,
-//        "SportsDrink": true,
-//        "SoftDrinks": false,
-//        "Calorie":false,
-//        "Nuts":false,
-//        "Eggs":true,
-//        "Sugar" :false,
-//        "Caffiene" :false,
-//        "Lactose" :true,
-//        "Soya" :false,
-//        "Vegan" :true
-//    ],[
-//        "Code": "72rQW3BeQIGXcVT",
-//        "Name": "Haldiram Rasgulla",
-//        "Manufacturer": "FritoLays",
-//        "Description": "randomText",
-//        "Type": "randomText",
-//        "DietFood": false,
-//        "BabyFood": true,
-//        "GymFood": false,
-//        "NutritionalFood": true,
-//        "SpicyFood": false,
-//        "SportsDrink": true,
-//        "SoftDrinks": true,
-//        "Calorie":false,
-//        "Nuts":true,
-//        "Eggs":true,
-//        "Sugar" :false,
-//        "Caffiene" :true,
-//        "Lactose" :true,
-//        "Soya" :true,
-//        "Vegan" :false
-//    ],[
-//        "Code": "3r5kqxfvsfyRAis",
-//        "Name": "Haldiram Bhujia Sev",
-//        "Manufacturer": "FritoLays",
-//        "Description": "randomText",
-//        "Type": "randomText",
-//        "DietFood": false,
-//        "BabyFood": false,
-//        "GymFood": true,
-//        "NutritionalFood": false,
-//        "SpicyFood": true,
-//        "SportsDrink": false,
-//        "SoftDrinks": false,
-//        "Calorie":false,
-//        "Nuts":true,
-//        "Eggs":true,
-//        "Sugar" :false,
-//        "Caffiene" :true,
-//        "Lactose" :true,
-//        "Soya" :true,
-//        "Vegan" :false
-//    ]
 ]

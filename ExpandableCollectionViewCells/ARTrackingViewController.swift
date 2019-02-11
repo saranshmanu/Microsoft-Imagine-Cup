@@ -55,7 +55,11 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         let closestResult = closestResults[indexNumber]
         let transform : matrix_float4x4 = closestResult.worldTransform
         let worldCoord : SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
-        let node : SCNNode = createNewChildNode(detectedObjectCode[indexNumber], totalFilters: totalFilters, listOfFilterImages: listOfFilterImages)
+        var checkWarning = false
+        if detectedFood[indexNumber].warning == true {
+            checkWarning = true
+        }
+        let node : SCNNode = createNewChildNode(detectedObjectCode[indexNumber], totalFilters: totalFilters, listOfFilterImages: listOfFilterImages, warning: checkWarning)
         sceneView.scene.rootNode.addChildNode(node)
         node.position = worldCoord
         Nodes.insert(node, at: indexNumber)
@@ -176,6 +180,8 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+//    var allergicContent = [Ingredient.Nuts]
+    
     @objc func handleTap(gestureRecognize: UITapGestureRecognizer) {
         // HIT TEST : REAL WORLD
         // here the latest prediction will be used as the id to be sent to the cloud and once after receiveing the information about the product the app continues till then I will show a loader that the object is bering detected
@@ -208,6 +214,12 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                     temp.GymFood = flag["GymFood"] as! Bool
                     temp.SpicyFood = flag["SpicyFood"] as! Bool
                     
+                    if temp.Nuts == true {
+                        temp.warning = true
+                    } else {
+                        temp.warning = false
+                    }
+                    
                     let randomColor = Int.random(in: 1...themeColors.count)
                     temp.foodColorTheme = themeColors[randomColor - 1]
                 }
@@ -222,7 +234,11 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                 let transform:matrix_float4x4 = closestResult.worldTransform
                 let worldCoord:SCNVector3 = SCNVector3Make(transform.columns.3.x, transform.columns.3.y, transform.columns.3.z)
                 // Create 3D Text
-                let node:SCNNode = self.createNewChildNode(temp.foodName, totalFilters: 0, listOfFilterImages: [])
+                var checkWarning = false
+                if temp.warning == true {
+                    checkWarning = true
+                }
+                let node:SCNNode = self.createNewChildNode(temp.foodName, totalFilters: 0, listOfFilterImages: [], warning: checkWarning)
                 self.sceneView.scene.rootNode.addChildNode(node)
                 node.position = worldCoord
                 self.Nodes.append(node)
@@ -234,8 +250,8 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     
     func addAnimation(node: SCNNode) {
 //        let rotateOne = SCNAction.rotateBy(x: 0, y: CGFloat(Float.pi), z: 0, duration: 5.0)
-        let hoverUp = SCNAction.moveBy(x: 0, y: 0.02, z: 0, duration: 2.5)
-        let hoverDown = SCNAction.moveBy(x: 0, y: -0.02, z: 0, duration: 2.5)
+        let hoverUp = SCNAction.moveBy(x: 0, y: 0, z: 0, duration: 2.5)
+        let hoverDown = SCNAction.moveBy(x: 0, y: -0.04, z: 0, duration: 2.5)
         let hoverSequence = SCNAction.sequence([hoverUp, hoverDown])
         let rotateAndHover = SCNAction.group([hoverSequence])
         let repeatForever = SCNAction.repeatForever(rotateAndHover)
@@ -303,7 +319,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
-    func createNewChildNode(_ text:String, totalFilters: Int, listOfFilterImages: [String]) -> SCNNode {
+    func createNewChildNode(_ text:String, totalFilters: Int, listOfFilterImages: [String], warning:Bool) -> SCNNode {
         
         let billboardConstraint = SCNBillboardConstraint()
         billboardConstraint.freeAxes = SCNBillboardAxis.Y
@@ -335,7 +351,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
 //        -----------------------------------------------------------------------------------------------
         
         planeText.sync {
-            let plane = SCNPlane(width: CGFloat(0.1), height: CGFloat(0.0326))
+            let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.0652))
             plane.cornerRadius = 0
             let spriteKitScene = SKScene(fileNamed: "ProductInformation")
 //        spriteKitScene?.backgroundColor = UIColor.blue
@@ -354,6 +370,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
         
 //        -----------------------------------------------------------------------------------------------
 
+        var yAxis:Double = 0
         filters.sync {
             let flag = totalFilters
             if flag != 0 {
@@ -369,7 +386,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                     filterCard.firstMaterial?.isDoubleSided = false
                     filterCard.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
                     let filterCardNode = SCNNode(geometry: filterCard)
-                    let yAxis = (Double(i)) * 0.11 + 0.09
+                    yAxis = (Double(i)) * 0.11 + 0.09
                     filterCardNode.position = SCNVector3Make(0, Float(yAxis), 0)
                     childParent.addChildNode(filterCardNode)
                     
@@ -377,8 +394,22 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             }
         }
         
-//        -----------------------------------------------------------------------------------------------
         pointer.sync {
+            if warning == true {
+                let plane = SCNPlane(width: CGFloat(0.2), height: CGFloat(0.35))
+                plane.cornerRadius = 0
+                let spriteKitScene = SKScene(fileNamed: "Warning")
+                plane.firstMaterial?.diffuse.contents = spriteKitScene
+                plane.firstMaterial?.isDoubleSided = false
+                plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
+                let planeNode = SCNNode(geometry: plane)
+                planeNode.position = SCNVector3Make(0, Float(yAxis) + 0.3 + 0.02, 0)
+                childParent.addChildNode(planeNode)
+            }
+        }
+        
+//        -----------------------------------------------------------------------------------------------
+//        pointer.sync {
 //            for _ in 0...10 {
 //                let randomx = Float.random(in: -5...5) / 200
 //                let randomy = Float.random(in: -5...5) / 200
@@ -389,7 +420,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
 //                sphereNode.position = SCNVector3Make(randomx, randomy, randomz)
 //                childParent.addChildNode(sphereNode)
 //            }
-        }
+//        }
         
         childParent.constraints = [billboardConstraint]
         return childParent
