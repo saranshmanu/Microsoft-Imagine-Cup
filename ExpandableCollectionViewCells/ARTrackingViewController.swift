@@ -214,7 +214,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
                     temp.GymFood = flag["GymFood"] as! Bool
                     temp.SpicyFood = flag["SpicyFood"] as! Bool
                     
-                    if temp.Nuts == true {
+                    if temp.Nuts == false {
                         temp.warning = true
                     } else {
                         temp.warning = false
@@ -364,7 +364,7 @@ class ARTrackingViewController: UIViewController, ARSCNViewDelegate {
             plane.firstMaterial?.diffuse.contentsTransform = SCNMatrix4Translate(SCNMatrix4MakeScale(1, -1, 1), 0, 1, 0)
             let planeNode = SCNNode(geometry: plane)
             planeNode.position = SCNVector3Make(0, 0.1, 0)
-            addAnimation(node: planeNode)
+//            addAnimation(node: planeNode)
             childParent.addChildNode(planeNode)
         }
         

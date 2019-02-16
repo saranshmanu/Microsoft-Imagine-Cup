@@ -167,7 +167,7 @@ var database = [
         "BabyFood": false,
         "GymFood": false,
         "NutritionalFood": false,
-        "SpicyFood": false,
+        "SpicyFood": true,
         "SportsDrink": false,
         "SoftDrinks": false,
         
@@ -179,7 +179,7 @@ var database = [
         "Caffiene" :true,
         "Lactose" :true,
         "Soya" :true,
-        "Vegan" :false
+        "Vegan" :true
     ]
     ,[
         "Code": "2t6jfTanIbQ5qx1",
@@ -197,9 +197,9 @@ var database = [
         
         
         "Calorie":false,
-        "Nuts":false,
-        "Eggs":false,
-        "Sugar" :false,
+        "Nuts":true,
+        "Eggs":true,
+        "Sugar" :true,
         "Caffiene" :true,
         "Lactose" :true,
         "Soya" :true,
@@ -223,29 +223,29 @@ var database = [
         "Nuts":true,
         "Eggs":true,
         "Sugar" :false,
-        "Caffiene" :false,
+        "Caffiene" :true,
         "Lactose" :false,
         "Soya" :true,
-        "Vegan" :false
+        "Vegan" :true
     ],[
         "Code": "hzCWdIft761lQOG",
-        "Name": "Imli",
+        "Name": "Kanji Mix",
         "Manufacturer": "FritoLays",
         "Description": "",
         "Type": "",
         "DietFood": true,
         "BabyFood": true,
-        "GymFood": false,
-        "NutritionalFood": false,
-        "SpicyFood": true,
+        "GymFood": true,
+        "NutritionalFood": true,
+        "SpicyFood": false,
         "SportsDrink": false,
         "SoftDrinks": false,
         
         
         "Calorie":true,
-        "Nuts":true,
-        "Eggs":false,
-        "Sugar" :false,
+        "Nuts":false,
+        "Eggs":true,
+        "Sugar" :true,
         "Caffiene" :true,
         "Lactose" :true,
         "Soya" :true,
