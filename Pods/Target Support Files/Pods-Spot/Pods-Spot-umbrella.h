@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_ExpandableCollectionViewCellsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_ExpandableCollectionViewCellsVersionString[];
+FOUNDATION_EXPORT double Pods_SpotVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_SpotVersionString[];
 

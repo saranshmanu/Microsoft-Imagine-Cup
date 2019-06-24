@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB48C4E22068C37600544FCD"
-               BuildableName = "ExpandableCollectionViewCells.app"
-               BlueprintName = "ExpandableCollectionViewCells"
-               ReferencedContainer = "container:ExpandableCollectionViewCells.xcodeproj">
+               BuildableName = "Spot.app"
+               BlueprintName = "Spot"
+               ReferencedContainer = "container:Spot.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB48C4E22068C37600544FCD"
-            BuildableName = "ExpandableCollectionViewCells.app"
-            BlueprintName = "ExpandableCollectionViewCells"
-            ReferencedContainer = "container:ExpandableCollectionViewCells.xcodeproj">
+            BuildableName = "Spot.app"
+            BlueprintName = "Spot"
+            ReferencedContainer = "container:Spot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB48C4E22068C37600544FCD"
-            BuildableName = "ExpandableCollectionViewCells.app"
-            BlueprintName = "ExpandableCollectionViewCells"
-            ReferencedContainer = "container:ExpandableCollectionViewCells.xcodeproj">
+            BuildableName = "Spot.app"
+            BlueprintName = "Spot"
+            ReferencedContainer = "container:Spot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB48C4E22068C37600544FCD"
-            BuildableName = "ExpandableCollectionViewCells.app"
-            BlueprintName = "ExpandableCollectionViewCells"
-            ReferencedContainer = "container:ExpandableCollectionViewCells.xcodeproj">
+            BuildableName = "Spot.app"
+            BlueprintName = "Spot"
+            ReferencedContainer = "container:Spot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

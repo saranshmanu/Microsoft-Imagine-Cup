@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3C1086ED618F424AC63E04E6 /* Pods_ExpandableCollectionViewCells.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */; };
+		92EA74745977E57B1DC3F132 /* Pods_Spot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ADB033486FF518693111BA /* Pods_Spot.framework */; };
 		950A0AA52205F313002E50EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA42205F313002E50EE /* PageViewController.swift */; };
 		950A0AA72205FFA1002E50EE /* ARTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */; };
 		950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA8220602D5002E50EE /* MobileNet.mlmodel */; };
@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.release.xcconfig"; sourceTree = "<group>"; };
+		648B314873DB82DDD8436960 /* Pods-Spot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.release.xcconfig"; sourceTree = "<group>"; };
 		950A0AA42205F313002E50EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingViewController.swift; sourceTree = "<group>"; };
 		950A0AA8220602D5002E50EE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
@@ -57,10 +58,11 @@
 		95B9DC99220DDB4100B1A644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		95B9DC9B220E178900B1A644 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		95D09790220A5DF500247436 /* Product.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Product.sks; sourceTree = "<group>"; };
+		99ADB033486FF518693111BA /* Pods_Spot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B2886E969EDBD0CA8080EB5 /* Pods-Spot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.debug.xcconfig"; sourceTree = "<group>"; };
 		A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.debug.xcconfig"; sourceTree = "<group>"; };
-		CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExpandableCollectionViewCells.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB181D3B2080B46900656A16 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
-		DB48C4E32068C37600544FCD /* ExpandableCollectionViewCells.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpandableCollectionViewCells.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB48C4E32068C37600544FCD /* Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB48C4E62068C37600544FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB48C4E82068C37600544FCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB48C4EB2068C37600544FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C1086ED618F424AC63E04E6 /* Pods_ExpandableCollectionViewCells.framework in Frameworks */,
+				92EA74745977E57B1DC3F132 /* Pods_Spot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +87,7 @@
 		09F81D268F7C736B69249ECC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CDD9648776051FD015A32AC3 /* Pods_ExpandableCollectionViewCells.framework */,
+				99ADB033486FF518693111BA /* Pods_Spot.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,8 +97,68 @@
 			children = (
 				A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */,
 				598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */,
+				9B2886E969EDBD0CA8080EB5 /* Pods-Spot.debug.xcconfig */,
+				648B314873DB82DDD8436960 /* Pods-Spot.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		95FC7C2322C152E200B52168 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DB48C4EA2068C37600544FCD /* Main.storyboard */,
+				DB48C4EF2068C37600544FCD /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		95FC7C2422C152F700B52168 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DB48C4ED2068C37600544FCD /* Assets.xcassets */,
+				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
+				957CF4602210615500E39116 /* foodModel.mlmodel */,
+				95A34FEF220C14DC00DBB769 /* barcodeScanner.json */,
+				950A0AAC22071999002E50EE /* ProductInformation.sks */,
+				95D09790220A5DF500247436 /* Product.sks */,
+				955E12B02211AFEC0023E7B4 /* Warning.sks */,
+				955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		95FC7C2522C1531100B52168 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95ACA9702208ACAA00F16FDE /* Constants.swift */,
+				95B9DC87220D494200B1A644 /* Extensions.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95FC7C2622C1532300B52168 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB48C4E82068C37600544FCD /* ViewController.swift */,
+				DB48C4E62068C37600544FCD /* AppDelegate.swift */,
+				956CFB362205688300883690 /* CardsViewController.swift */,
+				950A0AA42205F313002E50EE /* PageViewController.swift */,
+				950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */,
+				95B9DC99220DDB4100B1A644 /* LoginViewController.swift */,
+				95B9DC9B220E178900B1A644 /* RegisterViewController.swift */,
+				957CF45622104D4700E39116 /* DiseasesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		95FC7C2722C1533A00B52168 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB181D3E2080B49400656A16 /* Cells */,
+				95FC7C2322C152E200B52168 /* Storyboards */,
+				95FC7C2422C152F700B52168 /* Assets */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB181D3D2080B47600656A16 /* Protocols */ = {
@@ -111,6 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				DB48C4F82068C71300544FCD /* ExpandableCell.swift */,
+				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
+				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
+				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -118,7 +183,7 @@
 		DB48C4DA2068C37600544FCD = {
 			isa = PBXGroup;
 			children = (
-				DB48C4E52068C37600544FCD /* ExpandableCollectionViewCells */,
+				DB48C4E52068C37600544FCD /* Spot */,
 				DB48C4E42068C37600544FCD /* Products */,
 				641DABC88C45E1446AF93E66 /* Pods */,
 				09F81D268F7C736B69249ECC /* Frameworks */,
@@ -128,51 +193,30 @@
 		DB48C4E42068C37600544FCD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB48C4E32068C37600544FCD /* ExpandableCollectionViewCells.app */,
+				DB48C4E32068C37600544FCD /* Spot.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB48C4E52068C37600544FCD /* ExpandableCollectionViewCells */ = {
+		DB48C4E52068C37600544FCD /* Spot */ = {
 			isa = PBXGroup;
 			children = (
 				DB181D3D2080B47600656A16 /* Protocols */,
-				DB181D3E2080B49400656A16 /* Cells */,
-				DB48C4E82068C37600544FCD /* ViewController.swift */,
-				DB48C4E62068C37600544FCD /* AppDelegate.swift */,
-				DB48C4EA2068C37600544FCD /* Main.storyboard */,
-				DB48C4ED2068C37600544FCD /* Assets.xcassets */,
-				DB48C4EF2068C37600544FCD /* LaunchScreen.storyboard */,
+				95FC7C2522C1531100B52168 /* Model */,
+				95FC7C2722C1533A00B52168 /* View */,
+				95FC7C2622C1532300B52168 /* ViewControllers */,
 				DB48C4F22068C37600544FCD /* Info.plist */,
-				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
-				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
-				956CFB362205688300883690 /* CardsViewController.swift */,
-				957CF4602210615500E39116 /* foodModel.mlmodel */,
-				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
-				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
-				950A0AA42205F313002E50EE /* PageViewController.swift */,
-				95A34FEF220C14DC00DBB769 /* barcodeScanner.json */,
-				950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */,
-				950A0AAC22071999002E50EE /* ProductInformation.sks */,
-				95ACA9702208ACAA00F16FDE /* Constants.swift */,
 				95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */,
-				95D09790220A5DF500247436 /* Product.sks */,
-				95B9DC87220D494200B1A644 /* Extensions.swift */,
-				95B9DC99220DDB4100B1A644 /* LoginViewController.swift */,
-				95B9DC9B220E178900B1A644 /* RegisterViewController.swift */,
-				957CF45622104D4700E39116 /* DiseasesViewController.swift */,
-				955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */,
-				955E12B02211AFEC0023E7B4 /* Warning.sks */,
 			);
-			path = ExpandableCollectionViewCells;
+			path = Spot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB48C4E22068C37600544FCD /* ExpandableCollectionViewCells */ = {
+		DB48C4E22068C37600544FCD /* Spot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB48C4F52068C37600544FCD /* Build configuration list for PBXNativeTarget "ExpandableCollectionViewCells" */;
+			buildConfigurationList = DB48C4F52068C37600544FCD /* Build configuration list for PBXNativeTarget "Spot" */;
 			buildPhases = (
 				032ECD0BED1B2194B1AC1743 /* [CP] Check Pods Manifest.lock */,
 				DB48C4DF2068C37600544FCD /* Sources */,
@@ -184,9 +228,9 @@
 			);
 			dependencies = (
 			);
-			name = ExpandableCollectionViewCells;
+			name = Spot;
 			productName = ExpandableCollectionViewCells;
-			productReference = DB48C4E32068C37600544FCD /* ExpandableCollectionViewCells.app */;
+			productReference = DB48C4E32068C37600544FCD /* Spot.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +249,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB48C4DE2068C37600544FCD /* Build configuration list for PBXProject "ExpandableCollectionViewCells" */;
+			buildConfigurationList = DB48C4DE2068C37600544FCD /* Build configuration list for PBXProject "Spot" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -218,7 +262,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB48C4E22068C37600544FCD /* ExpandableCollectionViewCells */,
+				DB48C4E22068C37600544FCD /* Spot */,
 			);
 		};
 /* End PBXProject section */
@@ -256,7 +300,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ExpandableCollectionViewCells-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Spot-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -268,23 +312,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Spot/Pods-Spot-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spot/Pods-Spot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -447,12 +487,12 @@
 		};
 		DB48C4F62068C37600544FCD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */;
+			baseConfigurationReference = 9B2886E969EDBD0CA8080EB5 /* Pods-Spot.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
-				INFOPLIST_FILE = ExpandableCollectionViewCells/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Spot/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.spot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -463,12 +503,12 @@
 		};
 		DB48C4F72068C37600544FCD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */;
+			baseConfigurationReference = 648B314873DB82DDD8436960 /* Pods-Spot.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
-				INFOPLIST_FILE = ExpandableCollectionViewCells/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Spot/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.spot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -480,7 +520,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB48C4DE2068C37600544FCD /* Build configuration list for PBXProject "ExpandableCollectionViewCells" */ = {
+		DB48C4DE2068C37600544FCD /* Build configuration list for PBXProject "Spot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB48C4F32068C37600544FCD /* Debug */,
@@ -489,7 +529,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB48C4F52068C37600544FCD /* Build configuration list for PBXNativeTarget "ExpandableCollectionViewCells" */ = {
+		DB48C4F52068C37600544FCD /* Build configuration list for PBXNativeTarget "Spot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB48C4F62068C37600544FCD /* Debug */,
