@@ -8,28 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		92EA74745977E57B1DC3F132 /* Pods_Spot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99ADB033486FF518693111BA /* Pods_Spot.framework */; };
-		950A0AA52205F313002E50EE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA42205F313002E50EE /* PageViewController.swift */; };
-		950A0AA72205FFA1002E50EE /* ARTrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */; };
+		950A0AA52205F313002E50EE /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA42205F313002E50EE /* PageVC.swift */; };
+		950A0AA72205FFA1002E50EE /* ARTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA62205FFA1002E50EE /* ARTrackingVC.swift */; };
 		950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 950A0AA8220602D5002E50EE /* MobileNet.mlmodel */; };
 		950A0AAD22071999002E50EE /* ProductInformation.sks in Resources */ = {isa = PBXBuildFile; fileRef = 950A0AAC22071999002E50EE /* ProductInformation.sks */; };
+		950B9155252EF47B003B4986 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950B9154252EF47B003B4986 /* UILabel.swift */; };
+		950B9158252EF48B003B4986 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950B9157252EF48B003B4986 /* UIImage.swift */; };
 		955E12AF22107C110023E7B4 /* DiseaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */; };
 		955E12B12211AFEC0023E7B4 /* Warning.sks in Resources */ = {isa = PBXBuildFile; fileRef = 955E12B02211AFEC0023E7B4 /* Warning.sks */; };
 		956CFB352205651100883690 /* CardsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB342205651100883690 /* CardsCollectionViewCell.swift */; };
-		956CFB372205688300883690 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB362205688300883690 /* CardsViewController.swift */; };
+		956CFB372205688300883690 /* CardsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB362205688300883690 /* CardsVC.swift */; };
 		956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */; };
 		956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */; };
-		957CF45722104D4700E39116 /* DiseasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CF45622104D4700E39116 /* DiseasesViewController.swift */; };
+		957CF45722104D4700E39116 /* DiseaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CF45622104D4700E39116 /* DiseaseVC.swift */; };
 		957CF4612210615500E39116 /* foodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 957CF4602210615500E39116 /* foodModel.mlmodel */; };
 		95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A34FEF220C14DC00DBB769 /* barcodeScanner.json */; };
 		95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9702208ACAA00F16FDE /* Constants.swift */; };
-		95ACA9732208C69000F16FDE /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */; };
-		95B9DC88220D494200B1A644 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC87220D494200B1A644 /* Extensions.swift */; };
-		95B9DC9A220DDB4100B1A644 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC99220DDB4100B1A644 /* LoginViewController.swift */; };
-		95B9DC9C220E178900B1A644 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC9B220E178900B1A644 /* RegisterViewController.swift */; };
+		95B9DC9A220DDB4100B1A644 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC99220DDB4100B1A644 /* LoginVC.swift */; };
+		95B9DC9C220E178900B1A644 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC9B220E178900B1A644 /* RegisterVC.swift */; };
 		95D09791220A5DF500247436 /* Product.sks in Resources */ = {isa = PBXBuildFile; fileRef = 95D09790220A5DF500247436 /* Product.sks */; };
 		DB181D3C2080B46900656A16 /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB181D3B2080B46900656A16 /* Expandable.swift */; };
 		DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E62068C37600544FCD /* AppDelegate.swift */; };
-		DB48C4E92068C37600544FCD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB48C4E82068C37600544FCD /* ViewController.swift */; };
 		DB48C4EC2068C37600544FCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB48C4EA2068C37600544FCD /* Main.storyboard */; };
 		DB48C4EE2068C37600544FCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB48C4ED2068C37600544FCD /* Assets.xcassets */; };
 		DB48C4F12068C37600544FCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB48C4EF2068C37600544FCD /* LaunchScreen.storyboard */; };
@@ -39,24 +38,24 @@
 /* Begin PBXFileReference section */
 		598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.release.xcconfig"; sourceTree = "<group>"; };
 		648B314873DB82DDD8436960 /* Pods-Spot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.release.xcconfig"; sourceTree = "<group>"; };
-		950A0AA42205F313002E50EE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingViewController.swift; sourceTree = "<group>"; };
+		950A0AA42205F313002E50EE /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
+		950A0AA62205FFA1002E50EE /* ARTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingVC.swift; sourceTree = "<group>"; };
 		950A0AA8220602D5002E50EE /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		950A0AAC22071999002E50EE /* ProductInformation.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ProductInformation.sks; sourceTree = "<group>"; };
+		950B9154252EF47B003B4986 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		950B9157252EF48B003B4986 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseTableViewCell.swift; sourceTree = "<group>"; };
 		955E12B02211AFEC0023E7B4 /* Warning.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Warning.sks; sourceTree = "<group>"; };
 		956CFB342205651100883690 /* CardsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewCell.swift; sourceTree = "<group>"; };
-		956CFB362205688300883690 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		956CFB362205688300883690 /* CardsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsVC.swift; sourceTree = "<group>"; };
 		956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
-		957CF45622104D4700E39116 /* DiseasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseasesViewController.swift; sourceTree = "<group>"; };
+		957CF45622104D4700E39116 /* DiseaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseVC.swift; sourceTree = "<group>"; };
 		957CF4602210615500E39116 /* foodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = foodModel.mlmodel; sourceTree = "<group>"; };
 		95A34FEF220C14DC00DBB769 /* barcodeScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodeScanner.json; sourceTree = "<group>"; };
 		95ACA9702208ACAA00F16FDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
-		95B9DC87220D494200B1A644 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		95B9DC99220DDB4100B1A644 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		95B9DC9B220E178900B1A644 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		95B9DC99220DDB4100B1A644 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		95B9DC9B220E178900B1A644 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		95D09790220A5DF500247436 /* Product.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Product.sks; sourceTree = "<group>"; };
 		99ADB033486FF518693111BA /* Pods_Spot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2886E969EDBD0CA8080EB5 /* Pods-Spot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		DB181D3B2080B46900656A16 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		DB48C4E32068C37600544FCD /* Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB48C4E62068C37600544FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB48C4E82068C37600544FCD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB48C4EB2068C37600544FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB48C4ED2068C37600544FCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB48C4F02068C37600544FCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,6 +101,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		950B9153252EF463003B4986 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				950B9154252EF47B003B4986 /* UILabel.swift */,
+				950B9157252EF48B003B4986 /* UIImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		95EBDCB1252E5D9D00714B22 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				95EBDCB3252E5DBB00714B22 /* Animations */,
+				95FC7C2422C152F700B52168 /* ARTemplates */,
+				95EBDCB2252E5DA400714B22 /* MLModels */,
+				DB48C4ED2068C37600544FCD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		95EBDCB2252E5DA400714B22 /* MLModels */ = {
+			isa = PBXGroup;
+			children = (
+				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
+				957CF4602210615500E39116 /* foodModel.mlmodel */,
+			);
+			path = MLModels;
+			sourceTree = "<group>";
+		};
+		95EBDCB3252E5DBB00714B22 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				95A34FEF220C14DC00DBB769 /* barcodeScanner.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		95FC7C2322C152E200B52168 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,43 +147,35 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		95FC7C2422C152F700B52168 /* Assets */ = {
+		95FC7C2422C152F700B52168 /* ARTemplates */ = {
 			isa = PBXGroup;
 			children = (
-				DB48C4ED2068C37600544FCD /* Assets.xcassets */,
-				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
-				957CF4602210615500E39116 /* foodModel.mlmodel */,
-				95A34FEF220C14DC00DBB769 /* barcodeScanner.json */,
 				950A0AAC22071999002E50EE /* ProductInformation.sks */,
 				95D09790220A5DF500247436 /* Product.sks */,
 				955E12B02211AFEC0023E7B4 /* Warning.sks */,
-				955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */,
 			);
-			path = Assets;
+			path = ARTemplates;
 			sourceTree = "<group>";
 		};
 		95FC7C2522C1531100B52168 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				95ACA9702208ACAA00F16FDE /* Constants.swift */,
-				95B9DC87220D494200B1A644 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		95FC7C2622C1532300B52168 /* ViewControllers */ = {
+		95FC7C2622C1532300B52168 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DB48C4E82068C37600544FCD /* ViewController.swift */,
-				DB48C4E62068C37600544FCD /* AppDelegate.swift */,
-				956CFB362205688300883690 /* CardsViewController.swift */,
-				950A0AA42205F313002E50EE /* PageViewController.swift */,
-				950A0AA62205FFA1002E50EE /* ARTrackingViewController.swift */,
-				95B9DC99220DDB4100B1A644 /* LoginViewController.swift */,
-				95B9DC9B220E178900B1A644 /* RegisterViewController.swift */,
-				957CF45622104D4700E39116 /* DiseasesViewController.swift */,
+				950A0AA42205F313002E50EE /* PageVC.swift */,
+				956CFB362205688300883690 /* CardsVC.swift */,
+				950A0AA62205FFA1002E50EE /* ARTrackingVC.swift */,
+				95B9DC99220DDB4100B1A644 /* LoginVC.swift */,
+				95B9DC9B220E178900B1A644 /* RegisterVC.swift */,
+				957CF45622104D4700E39116 /* DiseaseVC.swift */,
 			);
-			path = ViewControllers;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		95FC7C2722C1533A00B52168 /* View */ = {
@@ -156,7 +183,6 @@
 			children = (
 				DB181D3E2080B49400656A16 /* Cells */,
 				95FC7C2322C152E200B52168 /* Storyboards */,
-				95FC7C2422C152F700B52168 /* Assets */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +200,7 @@
 			children = (
 				DB48C4F82068C71300544FCD /* ExpandableCell.swift */,
 				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
+				955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */,
 				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
 				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
 			);
@@ -201,12 +228,14 @@
 		DB48C4E52068C37600544FCD /* Spot */ = {
 			isa = PBXGroup;
 			children = (
+				950B9153252EF463003B4986 /* Extension */,
+				95EBDCB1252E5D9D00714B22 /* Resources */,
 				DB181D3D2080B47600656A16 /* Protocols */,
 				95FC7C2522C1531100B52168 /* Model */,
 				95FC7C2722C1533A00B52168 /* View */,
-				95FC7C2622C1532300B52168 /* ViewControllers */,
+				95FC7C2622C1532300B52168 /* ViewController */,
+				DB48C4E62068C37600544FCD /* AppDelegate.swift */,
 				DB48C4F22068C37600544FCD /* Info.plist */,
-				95ACA9722208C68F00F16FDE /* HeaderCollectionViewCell.swift */,
 			);
 			path = Spot;
 			sourceTree = "<group>";
@@ -334,21 +363,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95ACA9732208C69000F16FDE /* HeaderCollectionViewCell.swift in Sources */,
-				950A0AA72205FFA1002E50EE /* ARTrackingViewController.swift in Sources */,
+				950A0AA72205FFA1002E50EE /* ARTrackingVC.swift in Sources */,
 				956CFB352205651100883690 /* CardsCollectionViewCell.swift in Sources */,
-				DB48C4E92068C37600544FCD /* ViewController.swift in Sources */,
 				956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */,
 				957CF4612210615500E39116 /* foodModel.mlmodel in Sources */,
-				956CFB372205688300883690 /* CardsViewController.swift in Sources */,
+				950B9158252EF48B003B4986 /* UIImage.swift in Sources */,
+				956CFB372205688300883690 /* CardsVC.swift in Sources */,
 				DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */,
 				DB48C4F92068C71300544FCD /* ExpandableCell.swift in Sources */,
-				950A0AA52205F313002E50EE /* PageViewController.swift in Sources */,
-				95B9DC88220D494200B1A644 /* Extensions.swift in Sources */,
-				957CF45722104D4700E39116 /* DiseasesViewController.swift in Sources */,
+				950A0AA52205F313002E50EE /* PageVC.swift in Sources */,
+				950B9155252EF47B003B4986 /* UILabel.swift in Sources */,
+				957CF45722104D4700E39116 /* DiseaseVC.swift in Sources */,
 				950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */,
-				95B9DC9A220DDB4100B1A644 /* LoginViewController.swift in Sources */,
-				95B9DC9C220E178900B1A644 /* RegisterViewController.swift in Sources */,
+				95B9DC9A220DDB4100B1A644 /* LoginVC.swift in Sources */,
+				95B9DC9C220E178900B1A644 /* RegisterVC.swift in Sources */,
 				DB181D3C2080B46900656A16 /* Expandable.swift in Sources */,
 				955E12AF22107C110023E7B4 /* DiseaseTableViewCell.swift in Sources */,
 				956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */,

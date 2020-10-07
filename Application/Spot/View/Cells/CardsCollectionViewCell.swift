@@ -11,7 +11,6 @@ import UIKit
 class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, Expandable {
     
     var filterType = ""
-    
     var totalFilters = 100
     let size = [150]
     
