@@ -21,7 +21,12 @@
 		956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */; };
 		956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */; };
 		957CF45722104D4700E39116 /* DiseaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CF45622104D4700E39116 /* DiseaseVC.swift */; };
-		957CF4612210615500E39116 /* foodModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 957CF4602210615500E39116 /* foodModel.mlmodel */; };
+		957CF4612210615500E39116 /* ProductModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 957CF4602210615500E39116 /* ProductModel.mlmodel */; };
+		959F4694252F5687004E763E /* ARTrackingVC+MLPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F4693252F5687004E763E /* ARTrackingVC+MLPrediction.swift */; };
+		959F4697252F5734004E763E /* ARTrackingVC+ARScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F4696252F5734004E763E /* ARTrackingVC+ARScene.swift */; };
+		959F46A5252F625B004E763E /* ARTrackingVC+ARCalibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F46A4252F625B004E763E /* ARTrackingVC+ARCalibration.swift */; };
+		959F46A9252F7B53004E763E /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F46A8252F7B53004E763E /* Product.swift */; };
+		959F46B0252F8F9A004E763E /* HeadingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959F46AF252F8F9A004E763E /* HeadingCollectionViewCell.swift */; };
 		95A34FF0220C14DC00DBB769 /* barcodeScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 95A34FEF220C14DC00DBB769 /* barcodeScanner.json */; };
 		95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95ACA9702208ACAA00F16FDE /* Constants.swift */; };
 		95B9DC9A220DDB4100B1A644 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B9DC99220DDB4100B1A644 /* LoginVC.swift */; };
@@ -36,7 +41,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.release.xcconfig"; sourceTree = "<group>"; };
 		648B314873DB82DDD8436960 /* Pods-Spot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.release.xcconfig"; sourceTree = "<group>"; };
 		950A0AA42205F313002E50EE /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		950A0AA62205FFA1002E50EE /* ARTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARTrackingVC.swift; sourceTree = "<group>"; };
@@ -51,7 +55,12 @@
 		956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		957CF45622104D4700E39116 /* DiseaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseVC.swift; sourceTree = "<group>"; };
-		957CF4602210615500E39116 /* foodModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = foodModel.mlmodel; sourceTree = "<group>"; };
+		957CF4602210615500E39116 /* ProductModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ProductModel.mlmodel; sourceTree = "<group>"; };
+		959F4693252F5687004E763E /* ARTrackingVC+MLPrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ARTrackingVC+MLPrediction.swift"; path = "Spot/ViewController/ARTrackingVC+MLPrediction.swift"; sourceTree = SOURCE_ROOT; };
+		959F4696252F5734004E763E /* ARTrackingVC+ARScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARTrackingVC+ARScene.swift"; sourceTree = "<group>"; };
+		959F46A4252F625B004E763E /* ARTrackingVC+ARCalibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARTrackingVC+ARCalibration.swift"; sourceTree = "<group>"; };
+		959F46A8252F7B53004E763E /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		959F46AF252F8F9A004E763E /* HeadingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingCollectionViewCell.swift; sourceTree = "<group>"; };
 		95A34FEF220C14DC00DBB769 /* barcodeScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = barcodeScanner.json; sourceTree = "<group>"; };
 		95ACA9702208ACAA00F16FDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		95B9DC99220DDB4100B1A644 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -59,7 +68,6 @@
 		95D09790220A5DF500247436 /* Product.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Product.sks; sourceTree = "<group>"; };
 		99ADB033486FF518693111BA /* Pods_Spot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2886E969EDBD0CA8080EB5 /* Pods-Spot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Spot/Pods-Spot.debug.xcconfig"; sourceTree = "<group>"; };
-		A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExpandableCollectionViewCells.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExpandableCollectionViewCells/Pods-ExpandableCollectionViewCells.debug.xcconfig"; sourceTree = "<group>"; };
 		DB181D3B2080B46900656A16 /* Expandable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
 		DB48C4E32068C37600544FCD /* Spot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB48C4E62068C37600544FCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,8 +101,6 @@
 		641DABC88C45E1446AF93E66 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A1500C2376583FB669202B4B /* Pods-ExpandableCollectionViewCells.debug.xcconfig */,
-				598B60B06F73E15FBA7F2D62 /* Pods-ExpandableCollectionViewCells.release.xcconfig */,
 				9B2886E969EDBD0CA8080EB5 /* Pods-Spot.debug.xcconfig */,
 				648B314873DB82DDD8436960 /* Pods-Spot.release.xcconfig */,
 			);
@@ -104,6 +110,9 @@
 		950B9153252EF463003B4986 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				959F4693252F5687004E763E /* ARTrackingVC+MLPrediction.swift */,
+				959F46A4252F625B004E763E /* ARTrackingVC+ARCalibration.swift */,
+				959F4696252F5734004E763E /* ARTrackingVC+ARScene.swift */,
 				950B9154252EF47B003B4986 /* UILabel.swift */,
 				950B9157252EF48B003B4986 /* UIImage.swift */,
 			);
@@ -125,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				950A0AA8220602D5002E50EE /* MobileNet.mlmodel */,
-				957CF4602210615500E39116 /* foodModel.mlmodel */,
+				957CF4602210615500E39116 /* ProductModel.mlmodel */,
 			);
 			path = MLModels;
 			sourceTree = "<group>";
@@ -161,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				95ACA9702208ACAA00F16FDE /* Constants.swift */,
+				959F46A8252F7B53004E763E /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,10 +209,11 @@
 			isa = PBXGroup;
 			children = (
 				DB48C4F82068C71300544FCD /* ExpandableCell.swift */,
-				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
 				955E12AE22107C110023E7B4 /* DiseaseTableViewCell.swift */,
+				956CFB342205651100883690 /* CardsCollectionViewCell.swift */,
 				956CFB3A220598ED00883690 /* FilterCollectionViewCell.swift */,
 				956CFB3C2205CAFB00883690 /* ProductCollectionViewCell.swift */,
+				959F46AF252F8F9A004E763E /* HeadingCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -366,21 +377,26 @@
 				950A0AA72205FFA1002E50EE /* ARTrackingVC.swift in Sources */,
 				956CFB352205651100883690 /* CardsCollectionViewCell.swift in Sources */,
 				956CFB3D2205CAFB00883690 /* ProductCollectionViewCell.swift in Sources */,
-				957CF4612210615500E39116 /* foodModel.mlmodel in Sources */,
+				957CF4612210615500E39116 /* ProductModel.mlmodel in Sources */,
 				950B9158252EF48B003B4986 /* UIImage.swift in Sources */,
+				959F46A9252F7B53004E763E /* Product.swift in Sources */,
 				956CFB372205688300883690 /* CardsVC.swift in Sources */,
 				DB48C4E72068C37600544FCD /* AppDelegate.swift in Sources */,
 				DB48C4F92068C71300544FCD /* ExpandableCell.swift in Sources */,
+				959F4697252F5734004E763E /* ARTrackingVC+ARScene.swift in Sources */,
 				950A0AA52205F313002E50EE /* PageVC.swift in Sources */,
 				950B9155252EF47B003B4986 /* UILabel.swift in Sources */,
 				957CF45722104D4700E39116 /* DiseaseVC.swift in Sources */,
+				959F46B0252F8F9A004E763E /* HeadingCollectionViewCell.swift in Sources */,
 				950A0AA9220602D6002E50EE /* MobileNet.mlmodel in Sources */,
 				95B9DC9A220DDB4100B1A644 /* LoginVC.swift in Sources */,
 				95B9DC9C220E178900B1A644 /* RegisterVC.swift in Sources */,
+				959F46A5252F625B004E763E /* ARTrackingVC+ARCalibration.swift in Sources */,
 				DB181D3C2080B46900656A16 /* Expandable.swift in Sources */,
 				955E12AF22107C110023E7B4 /* DiseaseTableViewCell.swift in Sources */,
 				956CFB3B220598ED00883690 /* FilterCollectionViewCell.swift in Sources */,
 				95ACA9712208ACAA00F16FDE /* Constants.swift in Sources */,
+				959F4694252F5687004E763E /* ARTrackingVC+MLPrediction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -505,7 +521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

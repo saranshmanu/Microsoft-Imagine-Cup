@@ -8,8 +8,8 @@
 import UIKit
 
 class FilterCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var filterHeading: UILabel!
-    @IBOutlet weak var filterSubheading: UILabel!
-    @IBOutlet weak var filterBackground: UIView!
-    @IBOutlet weak var backgroundGradient: UIImageView!
+    @IBOutlet weak var heading: UILabel!
+    @IBOutlet weak var subheading: UILabel!
+    @IBOutlet weak var background: UIView!
+    @IBOutlet weak var gradient: UIImageView!
 }

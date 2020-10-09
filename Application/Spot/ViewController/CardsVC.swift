@@ -28,7 +28,7 @@ class CardsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3 + detectedFood.count
+        return 3 + products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -53,35 +53,35 @@ class CardsVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func updateCardHeading(heading: String, subHeading: String, card: CardsCollectionViewCell) -> CardsCollectionViewCell {
-        let flag = card
-        flag.cardHeading.text = "Filters"
-        let subheading = "Based on Food Category"
-        flag.cardSubheading.text = subheading.uppercased()
-        return flag
+        card.cardHeading.text = "Filters"
+        card.cardSubheading.text = "Based on Food Category".uppercased()
+        return card
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == 1 {
-            var card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
+        if indexPath.row == 0 {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "header", for: indexPath) as! HeadingCollectionViewCell
+        } else if indexPath.row == 1 {
+            var card = collectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
             card.filterType = "Category"
             card = updateCardShadows(card: card)
             card = updateCardHeading(heading: "Filters", subHeading: "Based on Food Category", card: card)
             card.reloadInputViews()
             return card
         } else if indexPath.row == 2 {
-            var card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
+            var card = collectionView.dequeueReusableCell(withReuseIdentifier: "filterChooseCard", for: indexPath) as! CardsCollectionViewCell
             card.filterType = "Content"
             card = updateCardShadows(card: card)
             card = updateCardHeading(heading: "Filters", subHeading: "Based on Content Type", card: card)
             card.reloadInputViews()
             return card
         } else {
-            let card = cardsCollectionView.dequeueReusableCell(withReuseIdentifier: "productCard", for: indexPath) as! ProductCollectionViewCell
-            let flag = detectedFood[indexPath.row - 3]
-            card.productName.text = flag.foodName as String
-            card.productDescription.text = flag.foodDescription as String
-            card.productType.text = flag.foodType as String
-            card.productCardColorTheme.backgroundColor = flag.foodColorTheme
+            let card = collectionView.dequeueReusableCell(withReuseIdentifier: "productCard", for: indexPath) as! ProductCollectionViewCell
+            let flag = products[indexPath.row - 3]
+            card.name.text = flag.foodName as String
+            card.desc.text = flag.foodDescription as String
+            card.type.text = flag.foodType as String
+            card.card.backgroundColor = flag.foodColorTheme
             return card
         }
     }

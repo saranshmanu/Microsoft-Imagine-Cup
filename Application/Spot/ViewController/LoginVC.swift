@@ -24,6 +24,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyboard)))
+    }
+
     func changeControls(flag: Bool) {
         skipButton.isEnabled = flag
         createAccountButton.isEnabled = flag
@@ -32,6 +39,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         usernameTextField.isEnabled = flag
         passwordTextField.isEnabled = flag
         activityIndicator.isHidden = flag
+    }
+    
+    @IBAction func skipAuthenticationAction(_ sender: Any) {
+        products.removeAll()
+        self.performSegue(withIdentifier: "login", sender: nil)
     }
     
     @IBAction func signInAction(_ sender: Any) {
@@ -43,7 +55,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     if let a:NSDictionary = response.result.value! as? NSDictionary {
                         if a["code"] as! Int == 0 {
                             self.changeControls(flag: true)
-                            self.performSegue(withIdentifier: "login", sender: nil)
+                            self.skipAuthenticationAction((Any).self)
                         } else {
                             self.changeControls(flag: true)
                             self.alertView(title: "Authentication Error!", message: "Please check your login details")
@@ -88,12 +100,5 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        usernameTextField.delegate = self as? UITextFieldDelegate
-        passwordTextField.delegate = self as? UITextFieldDelegate
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(LoginVC.dismissKeyboard)))
-    }
 
 }

@@ -27,7 +27,7 @@ class RegisterVC: UIViewController {
     ]
     
     var name = ""
-    var age:Int = 0
+    var age: Int = 0
     var email = ""
     var password = ""
     var confirmPassword = ""

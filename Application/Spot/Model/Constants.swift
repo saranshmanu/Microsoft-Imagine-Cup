@@ -21,7 +21,13 @@ struct Diseases {
     var name = ""
 }
 var DiseaseList = [Diseases]()
-var DiseaseListDatabase = ["Diabetes (Need to control blood sugar)", "Peanut Allergy (They can't eat nuts, need nut-free products)", "Celiac Disease (They can't eat Gluten)", "Hypoglycemia (They get low blood sugar easily, which is very dangerous)", "No specific disease"]
+var DiseaseListDatabase = [
+    "Diabetes (Need to control blood sugar)",
+    "Peanut Allergy (They can't eat nuts, need nut-free products)",
+    "Celiac Disease (They can't eat Gluten)",
+    "Hypoglycemia (They get low blood sugar easily, which is very dangerous)",
+    "No specific disease"
+]
 
 class Constants {
     static var filtersContent = [
@@ -56,7 +62,9 @@ class Ingredient {
     static var Vegan = "Vegan"
 }
 
-class filterImagesName {
+var products = [Product]()
+
+class _FilterName {
     static var DietFoodFilter = "DietFoodFilter"
     static var BabyFoodFilter = "BabyFoodFilter"
     static var GymFoodFilter = "GymFoodFilter"
@@ -75,48 +83,46 @@ class filterImagesName {
     static var VeganFilter = "VeganFilter"
 }
 
-class filtersSelectedBool {
-    static var DietFoodFilter = false
-    static var BabyFoodFilter = false
-    static var GymFoodFilter = false
-    static var NutritionalFoodFilter = false
-    static var SpicyFoodFilter = false
-    static var SportsDrinkFilter = false
-    static var SoftDrinksFilter = false
+class _FilterImage {
+    static var DietFood = "DietFoodFilter"
+    static var BabyFood = "BabyFoodFilter"
+    static var GymFood = "GymFoodFilter"
+    static var NutritionalFood = "NutritionalFoodFilter"
+    static var SpicyFood = "SpicyFoodFilter"
+    static var SportsDrink = "SportsDrinkFilter"
+    static var SoftDrink = "SoftDrinksFilter"
     
-    static var CalorieFilter = false
-    static var NutsFilter = false
-    static var EggsFilter = false
-    static var SugarFilter = false
-    static var CaffieneFilter = false
-    static var LactoseFilter = false
-    static var SoyaFilter = false
-    static var VeganFilter = false
+    static var Calorie = "CalorieFilter"
+    static var Nuts = "NutsFilter"
+    static var Eggs = "EggsFilter"
+    static var Sugar = "SugarFilter"
+    static var Caffiene = "CaffieneFilter"
+    static var Lactose = "LactoseFilter"
+    static var Soya = "SoyaFilter"
+    static var Vegan = "VeganFilter"
+}
+
+class _FilterSelected {
+    static var Diet = false
+    static var Baby = false
+    static var Gym = false
+    static var Nutritional = false
+    static var SpicyFood = false
+    static var Sport = false
+    static var SoftDrink = false
+    
+    static var Calorie = false
+    static var Nuts = false
+    static var Eggs = false
+    static var Sugar = false
+    static var Caffiene = false
+    static var Lactose = false
+    static var Soya = false
+    static var Vegan = false
 }
 
 var base_url = "https://alpha-india.azurewebsites.net/login"
 var base_url_signup = "https://alpha-india.azurewebsites.net/signup"
-
-class filtersName {
-    static var DietFoodFilter = "DietFoodFilter"
-    static var BabyFoodFilter = "BabyFoodFilter"
-    static var GymFoodFilter = "GymFoodFilter"
-    static var NutritionalFoodFilter = "NutritionalFoodFilter"
-    static var SpicyFoodFilter = "SpicyFoodFilter"
-    static var SportsDrinkFilter = "SportsDrinkFilter"
-    static var SoftDrinksFilter = "SoftDrinksFilter"
-    
-    static var CalorieFilter = "CalorieFilter"
-    static var NutsFilter = "NutsFilter"
-    static var EggsFilter = "EggsFilter"
-    static var SugarFilter = "SugarFilter"
-    static var CaffieneFilter = "CaffieneFilter"
-    static var LactoseFilter = "LactoseFilter"
-    static var SoyaFilter = "SoyaFilter"
-    static var VeganFilter = "VeganFilter"
-}
-
-var detectedFood = [foodItem]()
 
 var themeColors = [
     UIColor.init(red: 216/255, green: 52/255, blue: 76/255, alpha: 0.9),
@@ -126,35 +132,6 @@ var themeColors = [
     UIColor.init(red: 54/255, green: 216/255, blue: 131/255, alpha: 0.9),
     UIColor.init(red: 195/255, green: 216/255, blue: 53/255, alpha: 0.9)
 ]
-
-struct foodItem {
-    var foodID = ""
-    var foodName = ""
-    var foodDescription = ""
-    var foodManufacturer = ""
-    var foodImage = ""
-    var foodColorTheme = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.7)
-    var foodType = ""
-    
-    var DietFood = false
-    var BabyFood = false
-    var GymFood = false
-    var NutritionalFood = false
-    var SpicyFood = false
-    var SportsDrink = false
-    var SoftDrinks = false
-    
-    var Calorie = false
-    var Nuts = false
-    var Eggs = false
-    var Sugar = false
-    var Caffiene = false
-    var Lactose = false
-    var Soya = false
-    var Vegan = false
-    
-    var warning = false
-}
 
 var database = [
     [

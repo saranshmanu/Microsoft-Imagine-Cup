@@ -28,28 +28,28 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         }
     }
     
-    func updateSelectedFilters(flag: Bool, i: Int) {
+    func updateSelectedFilters(status: Bool, i: Int) {
         if filterType == "Content" {
             switch i {
-                case 0: filtersSelectedBool.CalorieFilter = flag
-                case 1: filtersSelectedBool.NutsFilter = flag
-                case 2: filtersSelectedBool.EggsFilter = flag
-                case 3: filtersSelectedBool.SugarFilter = flag
-                case 4: filtersSelectedBool.CaffieneFilter = flag
-                case 5: filtersSelectedBool.LactoseFilter = flag
-                case 6: filtersSelectedBool.SoyaFilter = flag
-                case 7: filtersSelectedBool.VeganFilter = flag
+                case 0: _FilterSelected.Calorie = status
+                case 1: _FilterSelected.Nuts = status
+                case 2: _FilterSelected.Eggs = status
+                case 3: _FilterSelected.Sugar = status
+                case 4: _FilterSelected.Caffiene = status
+                case 5: _FilterSelected.Lactose = status
+                case 6: _FilterSelected.Soya = status
+                case 7: _FilterSelected.Vegan = status
                 default: return
             }
         } else {
             switch i {
-                case 0: filtersSelectedBool.DietFoodFilter = flag
-                case 1: filtersSelectedBool.BabyFoodFilter = flag
-                case 2: filtersSelectedBool.GymFoodFilter = flag
-                case 3: filtersSelectedBool.NutritionalFoodFilter = flag
-                case 4: filtersSelectedBool.SpicyFoodFilter = flag
-                case 5: filtersSelectedBool.SportsDrinkFilter = flag
-                case 6: filtersSelectedBool.SoftDrinksFilter = flag
+                case 0: _FilterSelected.Diet = status
+                case 1: _FilterSelected.Baby = status
+                case 2: _FilterSelected.Gym = status
+                case 3: _FilterSelected.Nutritional = status
+                case 4: _FilterSelected.SpicyFood = status
+                case 5: _FilterSelected.Sport = status
+                case 6: _FilterSelected.SoftDrink = status
                 default: return
             }
         }
@@ -64,9 +64,9 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
             }
             for i in 0...Constants.filtersContent.count - 1 {
                 if Constants.filtersContent[i][3] as! Int == 1 {
-                    updateSelectedFilters(flag: true, i: i)
+                    updateSelectedFilters(status: true, i: i)
                 } else {
-                    updateSelectedFilters(flag: false, i: i)
+                    updateSelectedFilters(status: false, i: i)
                 }
             }
         } else {
@@ -77,9 +77,9 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
             }
             for i in 0...Constants.filtersCategories.count - 1 {
                 if Constants.filtersCategories[i][3] as! Int == 1 {
-                    updateSelectedFilters(flag: true, i: i)
+                    updateSelectedFilters(status: true, i: i)
                 } else {
-                    updateSelectedFilters(flag: false, i: i)
+                    updateSelectedFilters(status: false, i: i)
                 }
             }
         }
@@ -95,25 +95,25 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
     }
     
     func updateCard(card: FilterCollectionViewCell, totalFilters: Int, indexPath: Int, flag: [NSArray]) -> FilterCollectionViewCell{
-        card.filterHeading.text = (flag[indexPath%totalFilters][1] as! String).uppercased()
-        card.filterSubheading.text = (flag[indexPath%totalFilters][0] as! String).uppercased()
+        card.heading.text = (flag[indexPath%totalFilters][1] as! String).uppercased()
+        card.subheading.text = (flag[indexPath%totalFilters][0] as! String).uppercased()
         if flag[indexPath%totalFilters][3] as! Int == 0 {
-            card.backgroundGradient.image = UIImage.init(named: "whiteGradient")
-            card.filterSubheading.setTextColorToGradient(image: UIImage(named: flag[indexPath%totalFilters][2] as! String)!)
-            card.filterHeading.setTextColorToGradient(image: UIImage(named: flag[indexPath%totalFilters][2] as! String)!)
+            card.gradient.image = UIImage.init(named: "whiteGradient")
+            card.subheading.setTextColorToGradient(image: UIImage(named: flag[indexPath%totalFilters][2] as! String)!)
+            card.heading.setTextColorToGradient(image: UIImage(named: flag[indexPath%totalFilters][2] as! String)!)
         } else {
-            card.backgroundGradient.image = UIImage.init(named: flag[indexPath%totalFilters][2] as! String)
-            card.filterSubheading.setTextColorToGradient(image: UIImage(named: "whiteGradient")!)
-            card.filterHeading.setTextColorToGradient(image: UIImage(named: "whiteGradient")!)
+            card.gradient.image = UIImage.init(named: flag[indexPath%totalFilters][2] as! String)
+            card.subheading.setTextColorToGradient(image: UIImage(named: "whiteGradient")!)
+            card.heading.setTextColorToGradient(image: UIImage(named: "whiteGradient")!)
         }
         return card
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let card = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "filterCard", for: indexPath) as! FilterCollectionViewCell
-        card.filterBackground.layer.borderWidth = 1
-        card.filterBackground.layer.cornerRadius = 10
-        card.filterBackground.layer.borderColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.4).cgColor
+        card.background.layer.borderWidth = 1
+        card.background.layer.cornerRadius = 10
+        card.background.layer.borderColor = UIColor.init(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.4).cgColor
         if filterType == "Content" {
             let flag = Constants.filtersContent
             return updateCard(card: card, totalFilters: flag.count, indexPath: indexPath.row, flag: flag as [NSArray])
@@ -138,7 +138,6 @@ class CardsCollectionViewCell: UICollectionViewCell, UICollectionViewDataSource,
         filterCollectionView.dataSource = self
         let midIndexPath = IndexPath(row: totalFilters / 2 , section: 0)
         filterCollectionView.scrollToItem(at: midIndexPath,at: .centeredHorizontally,animated: false)
-//        autoScroll()
     }
     
     func setGradientBackground(colorTop:UIColor, colorBottom:UIColor, view:UIView) {
