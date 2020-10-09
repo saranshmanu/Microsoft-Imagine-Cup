@@ -6,8 +6,6 @@ Imagine Cup is an annual competition sponsored and hosted by Microsoft Corp. whi
 
 All Imagine Cup competitors create projects that address the Imagine Cup theme: "Imagine a world where technology helps solve the toughest problems". Started in 2003, it has steadily grown in size, with more than 358,000 competitors representing 183 countries and regions in 2011. The Imagine Cup worldwide finals have been held all over the globe. The Imagine Cup 2017 worldwide Finals was held in Seattle, United States.
 
-[![Alpha India - Microsoft Imagine Cup Asia Finals](http://img.youtube.com/vi/OXffhWhFmhI/0.jpg)](http://www.youtube.com/watch?v=OXffhWhFmhI "Alpha India - Microsoft Imagine Cup Asia Finals")
-
 ## About the SPOT?
 
 <p align = "center"><img src = "Assets/logo.png" width = "30%" height = "30%"></p>
